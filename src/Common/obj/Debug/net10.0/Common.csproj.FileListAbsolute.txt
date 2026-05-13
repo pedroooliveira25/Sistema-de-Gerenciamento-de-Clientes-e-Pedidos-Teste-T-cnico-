@@ -1,0 +1,11 @@
+C:\Users\Pedro Oliveira\Documents\Ultron\src\Common\bin\Debug\net10.0\Common.deps.json
+C:\Users\Pedro Oliveira\Documents\Ultron\src\Common\bin\Debug\net10.0\Common.dll
+C:\Users\Pedro Oliveira\Documents\Ultron\src\Common\bin\Debug\net10.0\Common.pdb
+C:\Users\Pedro Oliveira\Documents\Ultron\src\Common\obj\Debug\net10.0\Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Pedro Oliveira\Documents\Ultron\src\Common\obj\Debug\net10.0\Common.AssemblyInfoInputs.cache
+C:\Users\Pedro Oliveira\Documents\Ultron\src\Common\obj\Debug\net10.0\Common.AssemblyInfo.cs
+C:\Users\Pedro Oliveira\Documents\Ultron\src\Common\obj\Debug\net10.0\Common.csproj.CoreCompileInputs.cache
+C:\Users\Pedro Oliveira\Documents\Ultron\src\Common\obj\Debug\net10.0\Common.dll
+C:\Users\Pedro Oliveira\Documents\Ultron\src\Common\obj\Debug\net10.0\refint\Common.dll
+C:\Users\Pedro Oliveira\Documents\Ultron\src\Common\obj\Debug\net10.0\Common.pdb
+C:\Users\Pedro Oliveira\Documents\Ultron\src\Common\obj\Debug\net10.0\ref\Common.dll
