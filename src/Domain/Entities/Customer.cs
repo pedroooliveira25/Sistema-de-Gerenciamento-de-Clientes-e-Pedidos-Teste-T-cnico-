@@ -3,32 +3,46 @@ using System.Data.Common;
 public class Customer
 {
     private Guid id; 
-    private string name; 
-    private string email;
-    private string cep; 
+
+    public string address {get; private set;} 
+    public string name {get; private set;} 
+    public string email {get; private set;}
+    public string cep {get; private set;} 
 
     public enum Stage {Active, Inactive, Blocked};
 
     private Stage stage; 
 //iniciando construtor
-    public Customer(Guid id, string name, string email, string cep)
+    public Customer(Guid userId, string name, string email, string cep, string address)
     {
-        this.id = (id);
+       
+        this.id = (userId);
+
         this.name = (name);
         this.email = (email);
         this.cep = (cep);
+        this.address = (address);
 
         this.stage = Stage.Active;
     }
 
 //definindo metodos de estado
-public void Active(Stage stage)
+public void Activate()
     { this.stage = Stage.Active; }
 
-public void Blocked(Stage stage)
+public void Block()
     { this.stage = Stage.Blocked; }
 
-public void Inactive(Stage stage)
+public void Inactive()
     { this.stage = Stage.Inactive; }
+
+//definindo regras invariantes
+
+
+
 }
+
+
+
+
 

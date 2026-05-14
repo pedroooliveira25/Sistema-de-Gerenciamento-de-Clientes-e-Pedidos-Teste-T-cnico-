@@ -5,12 +5,11 @@ using System.Security.Cryptography;
 public class User
 {
     private Guid Id;
-    private string email;
-    private string name;
-    private string password;
+    public string email {get; private set;}
+    public string name {get; private set;}
+    public string password {get; private set;}
     public enum UserType { ADMIN, CLIENT };
     private UserType userType;
-    private string status;
 
     //inicio o construtor para definir como deve ser tratado meu obj
     public User(string email, string name, string password, UserType userType)
@@ -24,7 +23,6 @@ public class User
         this.email = email;
         this.name = name;
         this.password = password;
-        this.status = "tomara que rode";
         this.userType = userType;
 
     }
@@ -48,14 +46,10 @@ public class User
     }
     //vou ver o que faço aqui 
     public void ChangeUserType(string userType)
-    { }
-
-
-    public void ChangeStatus(string status)
     {
-        ValidateStatus(status);
-        this.status = status;
+
     }
+
 
     //metodos de validacao
 
@@ -82,15 +76,9 @@ public class User
         }
     }
     public void ValidateUserType(UserType user)
+    
     { }//criar regras de validacao para cada tipo de user}
 
-    public void ValidateStatus(string status)
-    {
-        if (string.IsNullOrWhiteSpace(status))
-        {
-            throw new Exception("Invalide status");
-        }
-    }
 
 
 
