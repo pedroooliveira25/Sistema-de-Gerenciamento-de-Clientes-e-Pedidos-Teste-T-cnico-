@@ -1,15 +1,9 @@
-using System.Reflection.Metadata;
-using System.Security.Cryptography.X509Certificates;
+    public enum Status
+    {Pendente,  Enviado, Cancelado,}
 
 public class Order
 { 
-        public enum Status
-    {
-        Pendente,
-        Enviado,
-        Cancelado,
-    }
-
+    
     public Guid id {get; private set;}
     public Guid ProductId {get; private set;}    
     public Guid ClientId {get; private set;}
@@ -23,23 +17,23 @@ public class Order
 
     public Order (Guid productId, Guid clientId, int quantity, decimal valueProduct)
     {
-        if (ProductId == Guid.Empty)
+        if (productId == Guid.Empty)
             throw new Exception("Product inválido");
         if (clientId == Guid.Empty)
             throw new Exception("Client inválido");
         if (quantity <=0 )
             throw new Exception("Quantidade inválida");
-        if (valueProduct <= 0)
+        if (valueProduct <=0)
             throw new Exception("Valor inválido");
 
-    id = Guid.NewGuid();
-    ProductId = productId;   
-    ClientId = clientId;
-    Quantity = quantity;
-    ValueProduct = valueProduct; 
+    this.id = Guid.NewGuid();
+    this.ProductId = productId;   
+    this.ClientId = clientId;
+    this.Quantity = quantity;
+    this.ValueProduct = valueProduct; 
 
-    OrderData = DateTime.Now;
-    status = Status.Pendente;
+    this.OrderData = DateTime.Now;
+    this.status = Status.Pendente;
 
     }
 
