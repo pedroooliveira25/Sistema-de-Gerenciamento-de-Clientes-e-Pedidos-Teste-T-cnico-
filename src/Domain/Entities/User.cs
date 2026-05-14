@@ -1,14 +1,19 @@
+
+//crio atributos
+using System.Security.Cryptography;
+
 public class User
 {
     private Guid Id;
     private string email;
     private string name; 
     private string password;
-    private string userType;
+    public enum UserType {ADMIN, CLIENT};
+    private UserType userType; 
     private string status; 
 
-
-public User(string email, string name, string password, string userType)
+//inicio o construtor para definir como deve ser tratado meu obj
+public User (string email, string name, string password, UserType userType)
     {
         ValidateEmail(email);
         ValidateName(name);
@@ -19,10 +24,11 @@ public User(string email, string name, string password, string userType)
         this.email = email;
         this.name = name; 
         this.password = password; 
-        this.userType = userType;
-        this.status = "tomara que rode";     
+        this.status = "tomara que rode";    
+        this.userType = userType; 
            
     }
+//defino metodos de estado
     public void ChangeName(string newName)
     {
         ValidateName(newName);
@@ -42,10 +48,8 @@ public User(string email, string name, string password, string userType)
     }
     
     public void ChangeUserType(string userType)
-    {
-        ValidateUserType(userType);
-        this.userType = userType;
-    }
+    {}
+        
     
     public void ChangeStatus(string status)
     {
@@ -53,6 +57,7 @@ public User(string email, string name, string password, string userType)
         this.status = status;
     }
     
+    //metodos de validacao
 
     private void ValidateEmail(string email)
     {
@@ -75,13 +80,9 @@ public User(string email, string name, string password, string userType)
             throw new Exception("Invalide password");
         }
     }
-    public void ValidateUserType(string userType)
-    {
-        if (string.IsNullOrWhiteSpace(userType))
-        {
-            throw new Exception("Invalide user type");
-        }
-    }
+    public void ValidateUserType(UserType user)
+    { //criar regras de validacao para cada tipo de user}
+      
     public void ValidateStatus(string status)
     {
         if (string.IsNullOrWhiteSpace(status))
