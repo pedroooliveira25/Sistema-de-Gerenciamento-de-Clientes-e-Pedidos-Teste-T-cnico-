@@ -6,29 +6,29 @@ public class User
 {
     private Guid Id;
     private string email;
-    private string name; 
+    private string name;
     private string password;
-    public enum UserType {ADMIN, CLIENT};
-    private UserType userType; 
-    private string status; 
+    public enum UserType { ADMIN, CLIENT };
+    private UserType userType;
+    private string status;
 
-//inicio o construtor para definir como deve ser tratado meu obj
-public User (string email, string name, string password, UserType userType)
+    //inicio o construtor para definir como deve ser tratado meu obj
+    public User(string email, string name, string password, UserType userType)
     {
         ValidateEmail(email);
         ValidateName(name);
         ValidatePassword(password);
         ValidateUserType(userType);
 
-        this.Id = Guid.NewGuid(); 
+        this.Id = Guid.NewGuid();
         this.email = email;
-        this.name = name; 
-        this.password = password; 
-        this.status = "tomara que rode";    
-        this.userType = userType; 
-           
+        this.name = name;
+        this.password = password;
+        this.status = "tomara que rode";
+        this.userType = userType;
+
     }
-//defino metodos de estado
+    //defino metodos de estado
     public void ChangeName(string newName)
     {
         ValidateName(newName);
@@ -38,7 +38,7 @@ public User (string email, string name, string password, UserType userType)
     public void ChangeEmail(string newEmail)
     {
         ValidateEmail(newEmail);
-        this.email = newEmail; 
+        this.email = newEmail;
     }
 
     public void ChangePassword(string password)
@@ -46,17 +46,17 @@ public User (string email, string name, string password, UserType userType)
         ValidatePassword(password);
         this.password = password;
     }
-    
+    //vou ver o que faço aqui 
     public void ChangeUserType(string userType)
-    {}
-        
-    
+    { }
+
+
     public void ChangeStatus(string status)
     {
         ValidateStatus(status);
         this.status = status;
     }
-    
+
     //metodos de validacao
 
     private void ValidateEmail(string email)
@@ -67,7 +67,8 @@ public User (string email, string name, string password, UserType userType)
         }
     }
 
-    public void ValidateName(string name) {
+    public void ValidateName(string name)
+    {
         if (string.IsNullOrWhiteSpace(name))
         {
             throw new Exception("Invalide name");
@@ -81,8 +82,8 @@ public User (string email, string name, string password, UserType userType)
         }
     }
     public void ValidateUserType(UserType user)
-    { //criar regras de validacao para cada tipo de user}
-      
+    { }//criar regras de validacao para cada tipo de user}
+
     public void ValidateStatus(string status)
     {
         if (string.IsNullOrWhiteSpace(status))
@@ -93,5 +94,5 @@ public User (string email, string name, string password, UserType userType)
 
 
 
-        
+
 }
