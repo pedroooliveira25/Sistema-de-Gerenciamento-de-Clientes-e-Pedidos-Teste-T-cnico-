@@ -10,3 +10,7 @@ C:\Users\Pedro Oliveira\Documents\Ultron\src\Application\obj\Debug\net10.0\refin
 C:\Users\Pedro Oliveira\Documents\Ultron\src\Application\obj\Debug\net10.0\Application.pdb
 C:\Users\Pedro Oliveira\Documents\Ultron\src\Application\obj\Debug\net10.0\ref\Application.dll
 C:\Users\Pedro Oliveira\Documents\Ultron\src\Application\obj\Debug\net10.0\Application.sourcelink.json
+C:\Users\Pedro Oliveira\Documents\Ultron\src\Application\obj\Debug\net10.0\Application.csproj.AssemblyReference.cache
+C:\Users\Pedro Oliveira\Documents\Ultron\src\Application\bin\Debug\net10.0\Domain.dll
+C:\Users\Pedro Oliveira\Documents\Ultron\src\Application\bin\Debug\net10.0\Domain.pdb
+C:\Users\Pedro Oliveira\Documents\Ultron\src\Application\obj\Debug\net10.0\Applicat.44B5EDA2.Up2Date

@@ -34,3 +34,5 @@ C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\obj\Debug\net10.0\ref\Api.dll
 C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\bin\Debug\net10.0\Application.dll
 C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\bin\Debug\net10.0\Application.pdb
 C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\obj\Debug\net10.0\Api.sourcelink.json
+C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\bin\Debug\net10.0\Domain.dll
+C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\bin\Debug\net10.0\Domain.pdb

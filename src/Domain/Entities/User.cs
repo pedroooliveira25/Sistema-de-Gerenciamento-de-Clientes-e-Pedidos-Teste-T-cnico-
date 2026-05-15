@@ -82,6 +82,10 @@ public class User
     
     { }//criar regras de validacao para cada tipo de user}
 
+    public override string ToString()
+{
+    return $"Name: {name}, Email: {email}";
+}
 
 
 
