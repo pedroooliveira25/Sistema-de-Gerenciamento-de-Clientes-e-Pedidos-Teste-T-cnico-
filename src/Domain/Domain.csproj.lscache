@@ -59,6 +59,7 @@ Entities/
  Order.cs
  Product.cs
  User.cs
+Interface/Interface.cs
 obj/Debug/net10.0/
  .NETCoreApp,Version=v10.0.AssemblyAttributes.cs
  Domain.AssemblyInfo.cs

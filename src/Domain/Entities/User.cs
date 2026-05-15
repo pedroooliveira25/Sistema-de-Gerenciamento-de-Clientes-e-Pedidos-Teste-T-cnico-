@@ -2,16 +2,16 @@
 //crio atributos
 using System.Security.Cryptography;
 
-namespace Domain.Entities; 
+namespace Domain.Entities;
 
-  public enum UserType { ADMIN, CLIENT };
+public enum UserType { ADMIN, CLIENT };
 
 public class User
 {
     private Guid Id;
-    public string email {get; private set;}
-    public string name {get; private set;}
-    public string password {get; private set;}
+    public string email { get; private set; }
+    public string name { get; private set; }
+    public string password { get; private set; }
     private UserType userType;
 
     //inicio o construtor para definir como deve ser tratado meu obj
@@ -52,8 +52,6 @@ public class User
     {
 
     }
-
-
     //metodos de validacao
 
     private void ValidateEmail(string email)
@@ -79,13 +77,9 @@ public class User
         }
     }
     public void ValidateUserType(UserType user)
-    
+
     { }//criar regras de validacao para cada tipo de user}
 
-    public override string ToString()
-{
-    return $"Name: {name}, Email: {email}";
-}
 
 
 
