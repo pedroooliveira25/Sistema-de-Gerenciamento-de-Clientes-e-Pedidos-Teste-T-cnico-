@@ -397,11 +397,24 @@
       "Application/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "Domain": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/Application.dll": {}
         },
         "runtime": {
           "bin/placeholder/Application.dll": {}
+        }
+      },
+      "Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Domain.dll": {}
         }
       }
     }
@@ -918,6 +931,11 @@
       "type": "project",
       "path": "../../src/Application/Application.csproj",
       "msbuildProject": "../../src/Application/Application.csproj"
+    },
+    "Domain/1.0.0": {
+      "type": "project",
+      "path": "../../src/Domain/Domain.csproj",
+      "msbuildProject": "../../src/Domain/Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
