@@ -2,13 +2,13 @@ using System.ComponentModel.DataAnnotations;
 using System.Reflection.Metadata;
 using Microsoft.VisualBasic;
 
-using Domain.
+using Domain.Entities;
 public class CreateUser 
 {
-    //primeira coisa chamar o user para trabalharmos em cima dele.
-    public void CreateUser(string email, string name)
-    {
-    
-    }
+ public User Execute(string email, string name, string password, UserType userType)
+{
+    var user = new User(email, name, password, userType);
+    return user;
+}
     
 }
