@@ -1,5 +1,6 @@
 using System.Data.Common;
-  public enum Stage {Active, Inactive, Blocked};
+using System.Runtime.CompilerServices;
+public enum Stage {Active, Inactive, Blocked};
 
 public class Customer
 {
@@ -11,10 +12,9 @@ public class Customer
     public string cep {get; private set;} 
 
     private Stage stage; 
-//iniciando construtor
+
     public Customer(Guid userId, string name, string email, string cep, string address)
     {
-    //falta definir como inicia o construtor
 
     if (string.IsNullOrEmpty(address))
     throw new Exception ("Endereço invalido");
@@ -25,30 +25,39 @@ public class Customer
     if(string.IsNullOrEmpty(name))
     throw new Exception ("Nome invalido");
 
-    if (userId != idUser)
-        throw new Exception("User invalidate");
 
-
-    //name tem que ser o mesmo cadastrado no usuario 
-        this.id = (userId);
+        this.idUser = (userId);
+        this.id = Guid.NewGuid();
         this.name = (name);
         this.email = (email);
         this.cep = (cep);
         this.address = (address);
         this.stage = Stage.Active;
+
+
     }
 
-//definindo metodos de estado
-public void Activate()
-    { this.stage = Stage.Active; }
+    public void Activate()
+    {
+        if (stage == Stage.Blocked)
+            throw new Exception ("User is blocked");
+        
+        stage = Stage.Active; 
+    }
+    public void Inactive()
+    {
+        if (stage == Stage.Blocked)
+            throw new Exception ("User is blocked");
 
-public void Block()
-    { this.stage = Stage.Blocked; }
+        stage = Stage.Inactive; 
+    }
+    public void Blocked()
+    {
+        if (stage == Stage.Blocked)
+            throw new Exception ("User already blocked"); 
+        stage = Stage.Blocked; 
 
-public void Inactive()
-    { this.stage = Stage.Inactive; }
-
-//definindo regras invariantes
+    }
 
 
 

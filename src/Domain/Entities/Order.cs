@@ -14,6 +14,7 @@ public class Order
 
     public int Quantity {get; private set;}
     public decimal ValueProduct {get; private set;}
+    public DateTime OrderDate { get; }
 
     public Order (Guid productId, Guid clientId, int quantity, decimal valueProduct)
     {
@@ -32,7 +33,7 @@ public class Order
     this.Quantity = quantity;
     this.ValueProduct = valueProduct; 
 
-    this.OrderData = DateTime.Now;
+    this.OrderDate = DateTime.Now;
     this.status = Status.Pendente;
 
     }

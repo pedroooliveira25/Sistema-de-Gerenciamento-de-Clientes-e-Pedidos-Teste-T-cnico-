@@ -8,19 +8,18 @@ public enum UserType { ADMIN, CLIENT };
 
 public class User
 {
-    private Guid Id;
+    public Guid Id;
     public string email { get; private set; }
     public string name { get; private set; }
     public string password { get; private set; }
     private UserType userType;
 
-    //inicio o construtor para definir como deve ser tratado meu obj
+   
     public User(string email, string name, string password, UserType userType)
     {
         ValidateEmail(email);
         ValidateName(name);
         ValidatePassword(password);
-        ValidateUserType(userType);
 
         this.Id = Guid.NewGuid();
         this.email = email;
@@ -29,7 +28,7 @@ public class User
         this.userType = userType;
 
     }
-    //defino metodos de estado
+  
     public void ChangeName(string newName)
     {
         ValidateName(newName);
@@ -47,12 +46,6 @@ public class User
         ValidatePassword(password);
         this.password = password;
     }
-    //vou ver o que faço aqui 
-    public void ChangeUserType(string userType)
-    {
-
-    }
-    //metodos de validacao
 
     private void ValidateEmail(string email)
     {
@@ -76,9 +69,7 @@ public class User
             throw new Exception("Invalide password");
         }
     }
-    public void ValidateUserType(UserType user)
-
-    { }//criar regras de validacao para cada tipo de user}
+ 
 
 
 
