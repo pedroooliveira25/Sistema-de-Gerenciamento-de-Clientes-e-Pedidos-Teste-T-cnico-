@@ -1,9 +1,8 @@
 using System.ComponentModel;
+using Domain.Entities;
 
 public class Product
 {
-    private Guid productId;
-    private string name; 
     private decimal priceProduct; 
     private int stock; 
     private string category;
@@ -24,8 +23,14 @@ public class Product
         this.priceProduct = priceProduct;
         this.category = category;
 
-
     }
+
+    public void EditProduct(String newName)
+    {
+       
+    }
+
+  
 }
 
 

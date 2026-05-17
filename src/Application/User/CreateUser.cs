@@ -14,7 +14,17 @@ public class CreateUser
         return user;
     }
 
+
+
+public void EditProduct(User user)
+{
+    if (user.UserType != UserType.ADMIN)
+        throw new Exception("Access denied");
+
+    //colocar logica de edicao do produto aqui;;
+}
+
     
 }
 
-//colocar fluxo para banco e validar existência
+

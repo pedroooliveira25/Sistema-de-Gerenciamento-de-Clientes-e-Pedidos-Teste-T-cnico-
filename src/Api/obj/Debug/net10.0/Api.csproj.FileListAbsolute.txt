@@ -8,6 +8,13 @@ C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\bin\Debug\net10.0\Api.dll
 C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\bin\Debug\net10.0\Api.pdb
 C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\bin\Debug\net10.0\Microsoft.AspNetCore.OpenApi.dll
 C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\bin\Debug\net10.0\Microsoft.OpenApi.dll
+C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\bin\Debug\net10.0\Application.dll
+C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\bin\Debug\net10.0\Domain.dll
+C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\bin\Debug\net10.0\Application.pdb
+C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\bin\Debug\net10.0\Domain.pdb
 C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\obj\Debug\net10.0\Api.csproj.AssemblyReference.cache
 C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\obj\Debug\net10.0\rpswa.dswa.cache.json
 C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\obj\Debug\net10.0\Api.GeneratedMSBuildEditorConfig.editorconfig
@@ -16,6 +23,7 @@ C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\obj\Debug\net10.0\Api.AssemblyI
 C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\obj\Debug\net10.0\Api.csproj.CoreCompileInputs.cache
 C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\obj\Debug\net10.0\Api.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\obj\Debug\net10.0\Api.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\obj\Debug\net10.0\Api.sourcelink.json
 C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\obj\Debug\net10.0\rjimswa.dswa.cache.json
 C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
 C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
@@ -31,8 +39,3 @@ C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\obj\Debug\net10.0\refint\Api.dl
 C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\obj\Debug\net10.0\Api.pdb
 C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\obj\Debug\net10.0\Api.genruntimeconfig.cache
 C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\obj\Debug\net10.0\ref\Api.dll
-C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\bin\Debug\net10.0\Application.dll
-C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\bin\Debug\net10.0\Application.pdb
-C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\obj\Debug\net10.0\Api.sourcelink.json
-C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\bin\Debug\net10.0\Domain.dll
-C:\Users\Pedro Oliveira\Documents\Ultron\src\Api\bin\Debug\net10.0\Domain.pdb

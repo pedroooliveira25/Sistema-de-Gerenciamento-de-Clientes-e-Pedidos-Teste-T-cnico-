@@ -63,8 +63,8 @@ UnitTest1.cs
 
 [metadataReferences]
 ../../src/
- Application/obj/Debug/net10.0/ref/Application.dll
  Domain/obj/Debug/net10.0/ref/Domain.dll
+ Ultro.Api/obj/Debug/net10.0/ref/Application.dll
 <DOTNET>/packs/Microsoft.NETCore.App.Ref/10.0.7/ref/net10.0/
  Microsoft.CSharp.dll
  Microsoft.VisualBasic.Core.dll

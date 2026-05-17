@@ -12,7 +12,7 @@ public class User
     public string email { get; private set; }
     public string name { get; private set; }
     public string password { get; private set; }
-    private UserType userType;
+    public UserType UserType {get; private set;}
 
    
     public User(string email, string name, string password, UserType userType)
@@ -25,10 +25,15 @@ public class User
         this.email = email;
         this.name = name;
         this.password = password;
-        this.userType = userType;
+        this.UserType = userType;
 
     }
-  
+    
+    public bool IsAdmin()
+    {
+        return UserType == UserType.ADMIN;
+    }
+    
     public void ChangeName(string newName)
     {
         ValidateName(newName);
@@ -69,6 +74,8 @@ public class User
             throw new Exception("Invalide password");
         }
     }
+
+  
  
 
 

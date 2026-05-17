@@ -3,13 +3,13 @@
 
 public class Order
 { 
-    
-    public Guid id {get; private set;}
+     
+    public Guid Id {get; private set;}
     public Guid ProductId {get; private set;}    
     public Guid ClientId {get; private set;}
 
     public DateTime OrderData {get; private set;} 
-    public Status status {get; private set;} 
+    public Status Status {get; private set;} 
 
 
     public int Quantity {get; private set;}
@@ -27,14 +27,14 @@ public class Order
         if (valueProduct <=0)
             throw new Exception("Valor inválido");
 
-    this.id = Guid.NewGuid();
+    this.Id = Guid.NewGuid();
     this.ProductId = productId;   
     this.ClientId = clientId;
     this.Quantity = quantity;
     this.ValueProduct = valueProduct; 
 
     this.OrderDate = DateTime.Now;
-    this.status = Status.Pendente;
+    this.Status = Status.Pendente;
 
     }
 
