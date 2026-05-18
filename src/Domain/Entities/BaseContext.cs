@@ -1,4 +1,5 @@
 using System.Data;
+using Domain.Enums;
 
 namespace Domain.Entities; 
 

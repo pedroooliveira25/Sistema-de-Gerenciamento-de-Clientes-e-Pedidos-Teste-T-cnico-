@@ -2,6 +2,7 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Security.Cryptography.X509Certificates;
 using Domain.Entities;
+using Domain.Enums;
 
 
 public class User : Base

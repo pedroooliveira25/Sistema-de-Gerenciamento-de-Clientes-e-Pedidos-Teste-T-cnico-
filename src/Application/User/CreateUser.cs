@@ -1,9 +1,6 @@
 
 using Domain.Enums;
-
-
 namespace Application.UseCases.Customers;
-
 public class CreateUser
 {
     private readonly ICustomerRepository _repository;
