@@ -11,7 +11,7 @@ public class Customer : Base
     public StageAccount Stage{get; private set;}
     public List<Order> Orders {get; private set;}
 
-    public Guid CustomerID {get; set;}
+    public Guid CustomerID {get; private set;}
     public Customer customer {get; set;}
     
    public Customer (string name, string email, Guid id, string password, string address, StageAccount stage)
@@ -39,7 +39,7 @@ public class Customer : Base
             AddNotification("Order", "Cliente bloqueado não pode adicionar pedido");
                 return;  
         }
-    order.CustomerId = this.Id;
+    order.SetCustomer (this.Id);
     Orders.Add(order); 
     }
 

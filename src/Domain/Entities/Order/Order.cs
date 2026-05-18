@@ -34,6 +34,11 @@ public class Order : Base
 
     }
 
+    public void SetCustomer(Guid customerId)
+    {
+        CustomerId = customerId;
+    }
+
   
 
 
