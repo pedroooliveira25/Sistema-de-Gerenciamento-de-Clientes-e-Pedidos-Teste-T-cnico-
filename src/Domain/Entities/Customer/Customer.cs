@@ -32,6 +32,7 @@ public class Customer : Base
         Orders = new List<Order>();
     }
 
+    
     public void AddOrder(Order order)
     {
         if (Status == StageAccount.Blocked)
@@ -39,6 +40,7 @@ public class Customer : Base
             AddNotification("Order", "Cliente bloqueado não pode adicionar pedido");
                 return;  
         }
+
     order.SetCustomer (this.Id);
     Orders.Add(order); 
     }

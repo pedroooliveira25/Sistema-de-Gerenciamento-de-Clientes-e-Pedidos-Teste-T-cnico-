@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations.Schema;
 using Domain.Entities;
 
 public enum Status
@@ -5,7 +6,10 @@ public enum Status
 
 public class Order : Base
 {   
+    [ForeignKey("Customer")]
+    [Column(Order = 1)]
     public Guid CustomerId {get; private set;}
+    public Customer Customer {get; set;}
     public Guid ProductId {get; private set;}
     public int Quantity {get; private set;}
     public decimal Value {get; private set;}
@@ -20,14 +24,14 @@ public class Order : Base
         return; 
        if(!ValidatePropertiesInt(quantity, "Quantity"))
         return; 
-       if(ValidatePropertiesDecimal(value, "Value"))
+       if(!ValidatePropertiesDecimal(value, "Value"))
             return;
    
 
     this.CustomerId = customerId;   
     this.ProductId = productId;
     this.Quantity = quantity;
-    this.Value = Value; 
+    this.Value = value; 
 
     this.UpdateDate = DateTime.Now;
     this.Status = StatusOrder.Pending;
