@@ -1,85 +1,13 @@
+using System.ComponentModel;
+using System.Security.Cryptography.X509Certificates;
+using Domain.Entities;
 
-//crio atributos
-using System.Security.Cryptography;
 
-namespace Domain.Entities;
-
-public enum UserType { ADMIN, CLIENT };
-
-public class User
+public class User : Base
 {
-    public Guid Id;
-    public string email { get; private set; }
-    public string name { get; private set; }
-    public string password { get; private set; }
-    public UserType UserType {get; private set;}
-
-   
-    public User(string email, string name, string password, UserType userType)
+    public User(string name)
     {
-        ValidateEmail(email);
-        ValidateName(name);
-        ValidatePassword(password);
-
-        this.Id = Guid.NewGuid();
-        this.email = email;
-        this.name = name;
-        this.password = password;
-        this.UserType = userType;
-
+        this.name = name; 
+        this.productId = Guid.NewGuid(); 
     }
-    
-    public bool IsAdmin()
-    {
-        return UserType == UserType.ADMIN;
-    }
-    
-    public void ChangeName(string newName)
-    {
-        ValidateName(newName);
-        this.name = newName;
-    }
-
-    public void ChangeEmail(string newEmail)
-    {
-        ValidateEmail(newEmail);
-        this.email = newEmail;
-    }
-
-    public void ChangePassword(string password)
-    {
-        ValidatePassword(password);
-        this.password = password;
-    }
-
-    private void ValidateEmail(string email)
-    {
-        if (string.IsNullOrWhiteSpace(email))
-        {
-            throw new Exception("Invalide email");
-        }
-    }
-
-    public void ValidateName(string name)
-    {
-        if (string.IsNullOrWhiteSpace(name))
-        {
-            throw new Exception("Invalide name");
-        }
-    }
-    public void ValidatePassword(string password)
-    {
-        if (string.IsNullOrWhiteSpace(password))
-        {
-            throw new Exception("Invalide password");
-        }
-    }
-
-  
- 
-
-
-
-
-
 }

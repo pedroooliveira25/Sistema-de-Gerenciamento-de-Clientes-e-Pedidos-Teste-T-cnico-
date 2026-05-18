@@ -1,6 +1,9 @@
-public class Base()
+namespace Domain.Entities; 
+
+
+public class Base : Mensage
 {   
-    
-    private Guid productId;
-    private string name; 
+
+    protected Guid productId;
+    protected string name; 
 }
