@@ -6,43 +6,50 @@ public class Notifications
 {
     public Notifications()
     {
-        notification = new List<Notifications>();
+        NotificationList = new List<Notifications>();
     }
 
     [JsonIgnore]    
     [NotMapped]
-    public string? NameProperties{ get; set; }
+    public string? PropertyName{ get; set; }
 
     [JsonIgnore]
     [NotMapped]
 
-    public string? message { get; set; }
+    public string? Message { get; set; }
 
     [JsonIgnore]
     [NotMapped]
-    List<Notifications>? notification {get; set;}
+    
+    public List<Notifications> NotificationList {get; private set;}
 
-
-    public bool ValidatePropertiesString(string value, string nameProperties)
+    public void AddNotication (string property, string message)
     {
-        if(string.IsNullOrWhiteSpace(value) || string.IsNullOrWhiteSpace(nameProperties))
+        NotificationList.Add(new Notifications{
+                PropertyName = property,
+                Message = message
+        }); 
+    }
+    public bool ValidatePropertiesString(string value, string PropertyName)
+    {
+        if(string.IsNullOrWhiteSpace(value))
         {
-            notification.Add(new Notifications {
-                message = "Campo obrigatorio",
-                NameProperties = nameProperties
+            NotificationList.Add(new Notifications {
+                Message = "Campo {propertyName} é obrigatorio",
+                PropertyName = PropertyName
             });
             return false; 
         }
             return true;
     }
 
-        public bool ValidatePropertiesInt(int value, string nameProperties)
+        public bool ValidatePropertiesInt(int value, string PropertyName)
     {
-        if(value < 0  || string.IsNullOrWhiteSpace(nameProperties))
+        if(value < 0 )
         {
-            notification.Add(new Notifications {
-                message = "Campo obrigatorio",
-                NameProperties = nameProperties
+            NotificationList.Add(new Notifications {
+                Message = "Campo {propertyName} é inválido",
+                PropertyName = PropertyName
             });
             return false; 
         }
@@ -50,13 +57,13 @@ public class Notifications
     }
 
     
-        public bool ValidatePropertiesGuidId(Guid id, string nameProperties)
+        public bool ValidatePropertiesGuidId(Guid id, string PropertyName)
     {
-        if(id == Guid.Empty  || string.IsNullOrWhiteSpace(nameProperties))
+        if(id == Guid.Empty )
         {
-            notification.Add(new Notifications {
-                message = "Campo obrigatorio",
-                NameProperties = nameProperties
+            NotificationList.Add(new Notifications {
+                Message = "Campo {propertyName} é obrigatório",
+                PropertyName = PropertyName
             });
             return false; 
         }

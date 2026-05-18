@@ -18,7 +18,7 @@ public class User : Base
         ValidatePropertiesString(password, "Password");
         ValidatePropertiesString(address, "Address");
 
-        this.id = Guid.NewGuid(); 
+        this.Id = Guid.NewGuid(); 
         this.Address = address;
         this.Name = name; 
         this.Email =email;
