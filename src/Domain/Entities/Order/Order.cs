@@ -12,7 +12,7 @@ public class Order : Base
     public Guid ProductId {get; private set;}
     public int Quantity {get; private set;}
     public decimal Value {get; private set;}
-    public DateTime UpdateDate {get; private set;}
+    public DateTime OrderDate {get; private set;}
     public StatusOrder  Status {get; private set;}
 
     public Order (Guid customerId, Guid productId, int quantity, decimal value )
@@ -32,7 +32,7 @@ public class Order : Base
     this.Quantity = quantity;
     this.Value = value; 
 
-    this.UpdateDate = DateTime.Now;
+    this.OrderDate = DateTime.Now;
     this.Status = StatusOrder.Pending;
 
     }
@@ -40,6 +40,11 @@ public class Order : Base
     public void SetCustomer(Guid customerId)
     {
         CustomerId = customerId;
+    }
+
+    public void ConfirmeOrder(Product product)
+    {
+        product.DecreaseStock(Quantity);
     }
 
   

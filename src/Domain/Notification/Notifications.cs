@@ -45,7 +45,7 @@ public class Notifications
 
         public bool ValidatePropertiesInt(int value, string PropertyName)
     {
-        if(value < 0 )
+        if(value <= 0 )
         {
             NotificationList.Add(new Notifications {
                 Message = "Campo {propertyName} é inválido",
