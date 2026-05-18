@@ -5,11 +5,21 @@ using Domain.Entities;
 
 public class User : Base
 {
+    public string Email {get; private set;}
+    public string Password {get; private set;}
+      
+    public User(string name, string email, string password)
+    {   
+        ValidatePropertiesString(Email, "email");
+        ValidatePropertiesString(name, "name");
+        ValidatePropertiesString(Password, "Password");
+        ValidatePropertiesGuidId(id, "id" );
 
-    
-    public User(string name)
-    {
+
+        this.id = Guid.NewGuid(); 
         this.Name = name; 
-        this.productId = Guid.NewGuid(); 
+        this.Email =email;
+        this.Password = password; 
     }
-}
+
+} 

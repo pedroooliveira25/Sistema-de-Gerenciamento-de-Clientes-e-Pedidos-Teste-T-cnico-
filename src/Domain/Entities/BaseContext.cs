@@ -4,6 +4,6 @@ namespace Domain.Entities;
 public class Base : Notifications
 {   
 
-    protected Guid productId;
+    protected Guid id;
     protected string Name; 
 }

@@ -9,7 +9,7 @@ public class Notifications
         notification = new List<Notifications>();
     }
 
-    [JsonIgnore]
+    [JsonIgnore]    
     [NotMapped]
     public string? NameProperties{ get; set; }
 
@@ -29,7 +29,7 @@ public class Notifications
         {
             notification.Add(new Notifications {
                 message = "Campo obrigatorio",
-                NameProperties = "d"
+                NameProperties = nameProperties
             });
             return false; 
         }
@@ -42,11 +42,27 @@ public class Notifications
         {
             notification.Add(new Notifications {
                 message = "Campo obrigatorio",
-                NameProperties = "Nome"
+                NameProperties = nameProperties
             });
             return false; 
         }
             return true;
+    }
+
+    
+        public bool ValidatePropertiesGuidId(Guid id, string nameProperties)
+    {
+        if(id == Guid.Empty  || string.IsNullOrWhiteSpace(nameProperties))
+        {
+            notification.Add(new Notifications {
+                message = "Campo obrigatorio",
+                NameProperties = nameProperties
+            });
+            return false; 
+        }
+            return true;
+
+            
     }
 
 
