@@ -1,40 +1,36 @@
-    public enum Status
+using Domain.Entities;
+
+public enum Status
     {Pendente,  Enviado, Cancelado,}
 
-public class Order
-{ 
-     
-    public Guid Id {get; private set;}
-    public Guid ProductId {get; private set;}    
-    public Guid ClientId {get; private set;}
-
-    public DateTime OrderData {get; private set;} 
-    public Status Status {get; private set;} 
-
-
+public class Order : Base
+{   
+    public Guid CustomerId {get; private set;}
+    public Guid ProductId {get; private set;}
     public int Quantity {get; private set;}
-    public decimal ValueProduct {get; private set;}
-    public DateTime OrderDate { get; }
+    public decimal Value {get; private set;}
+    public DateTime UpdateDate {get; private set;}
+    public StatusOrder  Status {get; private set;}
 
-    public Order (Guid productId, Guid clientId, int quantity, decimal valueProduct)
+    public Order (Guid customerId, Guid productId, int quantity, decimal value )
     {
-        if (productId == Guid.Empty)
-            throw new Exception("Product inválido");
-        if (clientId == Guid.Empty)
-            throw new Exception("Client inválido");
-        if (quantity <=0 )
-            throw new Exception("Quantidade inválida");
-        if (valueProduct <=0)
-            throw new Exception("Valor inválido");
+       if(!ValidatePropertiesGuidId(customerId, "Customer id")) 
+         return;
+       if(!ValidatePropertiesGuidId(productId, "Product id"))
+        return; 
+       if(!ValidatePropertiesInt(quantity, "Quantity"))
+        return; 
+       if(ValidatePropertiesDecimal(value, "Value"))
+            return;
+   
 
-    this.Id = Guid.NewGuid();
-    this.ProductId = productId;   
-    this.ClientId = clientId;
+    this.CustomerId = customerId;   
+    this.ProductId = productId;
     this.Quantity = quantity;
-    this.ValueProduct = valueProduct; 
+    this.Value = Value; 
 
-    this.OrderDate = DateTime.Now;
-    this.Status = Status.Pendente;
+    this.UpdateDate = DateTime.Now;
+    this.Status = StatusOrder.Pending;
 
     }
 

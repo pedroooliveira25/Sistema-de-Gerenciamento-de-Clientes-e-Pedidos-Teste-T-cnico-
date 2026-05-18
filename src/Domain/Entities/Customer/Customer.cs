@@ -5,12 +5,14 @@ using Domain.Entities;
 [Table("Customer")]
 public class Customer : Base
 {
-    public string Email {get; private set;}
     public string Password {get; private set;}
     public string Address {get; private set;}
     public UserType UserType { get; private set;}
     public StageAccount Stage{get; private set;}
     public List<Order> Orders {get; private set;}
+
+    public Guid CustomerID {get; set;}
+    public Customer customer {get; set;}
     
    public Customer (string name, string email, Guid id, string password, string address, StageAccount stage)
     {
@@ -34,11 +36,14 @@ public class Customer : Base
     {
         if (Status == StageAccount.Blocked)
         {
-            AddNotication("Order", "Cliente bloqueado não pode adicionar pedido");
+            AddNotification("Order", "Cliente bloqueado não pode adicionar pedido");
                 return;  
         }
-        Orders.Add(order);
+    order.CustomerId = this.Id;
+    Orders.Add(order); 
     }
+
+    
     public void ChangeEmail(string newEmail)
     {
         Email = newEmail; 

@@ -23,7 +23,7 @@ public class Notifications
     
     public List<Notifications> NotificationList {get; private set;}
 
-    public void AddNotication (string property, string message)
+    public void AddNotification (string property, string message)
     {
         NotificationList.Add(new Notifications{
                 PropertyName = property,
@@ -70,6 +70,18 @@ public class Notifications
             return true;
     }
     
+       public bool ValidatePropertiesDecimal(Decimal value, string PropertyName)
+    {
+        if(value <= 0 )
+        {
+            NotificationList.Add(new Notifications {
+                Message = "Campo {propertyName} é obrigatório",
+                PropertyName = PropertyName
+            });
+            return false; 
+        }
+            return true;
+    }
     
 
 
