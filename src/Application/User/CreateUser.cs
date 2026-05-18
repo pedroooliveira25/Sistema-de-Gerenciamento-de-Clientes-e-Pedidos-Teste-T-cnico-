@@ -1,30 +1,43 @@
-using System.ComponentModel.DataAnnotations;
-using System.Reflection.Metadata;
-using Microsoft.VisualBasic;
 
-namespace  Application.User;
-using Domain.Entities;
+using Domain.Enums;
 
 
-public class CreateUser 
-{    
-        public User Execute(string email, string name, string password, UserType userType)
+namespace Application.UseCases.Customers;
+
+public class CreateUser
+{
+    private readonly ICustomerRepository _repository;
+
+    public CreateUser(ICustomerRepository repository)
     {
-          var user = new User(email, name, password, userType);
-        return user;
+        _repository = repository;
     }
 
+    public Customer Execute(string name, string email, string password, string address)
+    {
+        if (string.IsNullOrWhiteSpace(name))
+            throw new ArgumentException("Name inválido");
 
+        if (string.IsNullOrWhiteSpace(email))
+            throw new ArgumentException("Email inválido");
 
-public void EditProduct(User user)
-{
-    if (user.UserType != UserType.ADMIN)
-        throw new Exception("Access denied");
+        if (string.IsNullOrWhiteSpace(password))
+            throw new ArgumentException("Password inválido");
 
-    //colocar logica de edicao do produto aqui;;
+        if (string.IsNullOrWhiteSpace(address))
+            throw new ArgumentException("Address inválido");
+
+        var customer = new Customer(
+            name,
+            email,
+            password,
+            address,
+            StageAccount.Active
+        );
+
+        _repository.Add(customer);
+        _repository.SaveChanges();
+
+        return customer;
+    }
 }
-
-    
-}
-
-

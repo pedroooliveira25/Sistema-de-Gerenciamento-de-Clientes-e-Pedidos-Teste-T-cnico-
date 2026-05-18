@@ -1,19 +1,19 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Domain.Entities;
+using Domain.Enums;
 
 
 [Table("Customer")]
 public class Customer : Base
 {
+    private StageAccount active;
+
     public string Password {get; private set;}
     public string Address {get; private set;}
     public UserType UserType { get; private set;}
     public StageAccount Stage{get; private set;}
     public List<Order> Orders {get; private set;}
 
-    public Guid CustomerID {get; private set;}
-    public Customer customer {get; set;}
-    
    public Customer (string name, string email, Guid id, string password, string address, StageAccount stage)
     {
         ValidatePropertiesString(email, "email");
@@ -29,13 +29,21 @@ public class Customer : Base
 
         this.Stage = stage;
         this.UserType = UserType.CLIENTE; 
-        Orders = new List<Order>();
+        
     }
 
-    
+    public Customer(string name, string email, string password, string address, StageAccount active)
+    {
+        Name = name;
+        Email = email;
+        Password = password;
+        Address = address;
+        this.active = active;
+    }
+
     public void AddOrder(Order order)
     {
-        if (Status == StageAccount.Blocked)
+        if (Stage == StageAccount.Blocked)
         {
             AddNotification("Order", "Cliente bloqueado não pode adicionar pedido");
                 return;  
@@ -63,7 +71,7 @@ public class Customer : Base
 
     public void ChangeStage(StageAccount newStage)
     {
-        if(Stage == StageAccount.Blocked && newStage == StageAccount.Ative)
+        if(Stage == StageAccount.Blocked && newStage == StageAccount.Active)
         {
            return;
 

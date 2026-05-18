@@ -1,14 +1,7 @@
-namespace Interface.interfaces; 
+using Domain.Entities;
 
-
-public interface CreatUser
+public interface ICustomerRepository
 {
-
-    public void post();
-    public void put();
-    public void delete();
-
-
-
- 
+    void Add(Customer customer);
+    void SaveChanges();
 }
