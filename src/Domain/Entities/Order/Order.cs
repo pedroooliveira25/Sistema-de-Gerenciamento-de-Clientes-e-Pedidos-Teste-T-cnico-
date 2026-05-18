@@ -7,7 +7,6 @@ public enum Status
 public class Order : Base
 {   
     [ForeignKey("Customer")]
-    [Column(Order = 1)]
     public Guid CustomerId {get; private set;}
     public Customer Customer {get; set;}
     public Guid ProductId {get; private set;}
