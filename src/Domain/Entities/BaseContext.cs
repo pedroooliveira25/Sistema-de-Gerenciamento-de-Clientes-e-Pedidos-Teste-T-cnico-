@@ -1,9 +1,9 @@
 namespace Domain.Entities; 
 
 
-public class Base : Mensage
+public class Base : Notifications
 {   
 
     protected Guid productId;
-    protected string name; 
+    protected string Name; 
 }

@@ -28,13 +28,27 @@ public class Notifications
         if(string.IsNullOrWhiteSpace(value) || string.IsNullOrWhiteSpace(nameProperties))
         {
             notification.Add(new Notifications {
-                message = "d",
+                message = "Campo obrigatorio",
                 NameProperties = "d"
             });
             return false; 
         }
             return true;
     }
+
+        public bool ValidatePropertiesInt(int value, string nameProperties)
+    {
+        if(value < 0  || string.IsNullOrWhiteSpace(nameProperties))
+        {
+            notification.Add(new Notifications {
+                message = "Campo obrigatorio",
+                NameProperties = "Nome"
+            });
+            return false; 
+        }
+            return true;
+    }
+
 
 
 }

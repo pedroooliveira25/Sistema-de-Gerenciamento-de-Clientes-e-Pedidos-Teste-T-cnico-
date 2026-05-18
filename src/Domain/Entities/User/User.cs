@@ -5,9 +5,11 @@ using Domain.Entities;
 
 public class User : Base
 {
+
+    
     public User(string name)
     {
-        this.name = name; 
+        this.Name = name; 
         this.productId = Guid.NewGuid(); 
     }
 }
