@@ -15,6 +15,8 @@ public class User : Base
     [Column("Address")]
     public string Address {get; private set;}
 
+    public string Email {get; private set;}
+
     public User(string name, string email, string password, UserType userType, string address)
     {   
         ValidatePropertiesString(email, "email");

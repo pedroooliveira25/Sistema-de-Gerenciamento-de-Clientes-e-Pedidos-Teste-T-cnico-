@@ -10,17 +10,12 @@ public abstract class Base : Notifications
     [Display(Name = "Codigo")]
     public Guid Id {get; protected set;} = Guid.NewGuid();
 
-    [Display(Name = "Codigo")]
+    [Display(Name = "Atualizado por")]
     public Guid UpdateBy {get; protected set;}
 
-    [Display(Name = "Data/Hora")]
-    public DateTime UpdateDate {get; protected set;}
+    [Display(Name = "Data/Hora de Atualização")]
+    public DateTime UpdateDate {get; protected set;} = DateTime.UtcNow;
     
-    [Display(Name = "Name")]
-    public string? Name {get; protected set;} 
-
-    [Display(Name = "Email")]
-    public string? Email {get; protected set;}
 
 
 }
