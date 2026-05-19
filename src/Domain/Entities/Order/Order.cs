@@ -1,14 +1,12 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Domain.Entities;
 
-public enum Status
-    {Pendente,  Enviado, Cancelado,}
+namespace Domain.Enums;
 
 public class Order : Base
 {   
     [ForeignKey("Customer")]
     public Guid CustomerId {get; private set;}
-    public Customer Customer {get; set;}
     public Guid ProductId {get; private set;}
     public int Quantity {get; private set;}
     public decimal Value {get; private set;}
@@ -17,16 +15,27 @@ public class Order : Base
 
     public Order (Guid customerId, Guid productId, int quantity, decimal value )
     {
-       if(!ValidatePropertiesGuidId(customerId, "Customer id")) 
-         return;
+       if(!ValidatePropertiesGuidId(customerId, "Customer id"))
+        {
+            throw new ArgumentException("Customer id inválido");
+        }
+      
        if(!ValidatePropertiesGuidId(productId, "Product id"))
-        return; 
+        {
+            throw new ArgumentException("Product id inválido");
+        }
+        
        if(!ValidatePropertiesInt(quantity, "Quantity"))
-        return; 
+        {
+            throw new ArgumentException("Quantity inválida");
+        }
+     
        if(!ValidatePropertiesDecimal(value, "Value"))
-            return;
+        {
+            throw new ArgumentException("Value inválida");
+        }
+           
    
-
     this.CustomerId = customerId;   
     this.ProductId = productId;
     this.Quantity = quantity;

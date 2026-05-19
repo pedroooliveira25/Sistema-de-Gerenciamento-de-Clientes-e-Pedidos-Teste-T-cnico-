@@ -28,6 +28,10 @@ public class User : Base
         this.UserType = userType; 
     }
 
-    public List<User>Users {get; set;} = new List<User>(); 
-    
+    public List<User>Users {get; set;} = new List<User>();
+
+    public void Update(string name, string email)
+    {
+        throw new NotImplementedException();
+    }
 } 

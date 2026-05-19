@@ -1,20 +1,20 @@
 public class DeleteUser
 {
-    private readonly ICustomerRepository _repository;
+    private readonly IUserRepository _repository;
 
-    public DeleteUser(ICustomerRepository repository)
+    public DeleteUser(IUserRepository repository)
     {
         _repository = repository;
     }
 
     public void Execute(Guid id)
     {
-        var customer = _repository.GetById(id);
+        var user = _repository.GetById(id);
 
-         if (customer == null)
-            throw new Exception("Customer não encontrado");
+         if (user == null)
+            throw new Exception("User não encontrado");
 
-        _repository.Delete(customer);
+        _repository.Delete(user);
         _repository.SaveChanges();
     }
 }
