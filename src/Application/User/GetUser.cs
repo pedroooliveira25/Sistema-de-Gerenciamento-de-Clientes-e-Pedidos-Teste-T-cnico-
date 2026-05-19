@@ -1,23 +1,23 @@
 using Domain.Entities;
 
-namespace Application.UseCases.Customers;
+namespace Application.UseCases.Users;
 
 public class GetUser
 {
-    private readonly ICustomerRepository _repository;
+    private readonly IUserRepository _repository;
 
-    public GetUser(ICustomerRepository repository)
+    public GetUser(IUserRepository repository)
     {
         _repository = repository;
     }
 
-    public Customer Execute(Guid id)
+    public async Task<User> Execute(Guid id)
     {
-        var customer = _repository.GetById(id);
+        var user = await _repository.GetByIdAsync(id);
 
-        if (customer == null)
-            throw new Exception("Customer não encontrado");
+        if (user == null)
+            throw new Exception("User não encontrado");
 
-        return customer;
+        return user;
     }
 }

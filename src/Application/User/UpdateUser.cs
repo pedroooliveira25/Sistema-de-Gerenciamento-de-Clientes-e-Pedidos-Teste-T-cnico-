@@ -11,16 +11,16 @@ public class UpdateUser
         _repository = repository;
     }
 
-    public User Execute(Guid id, string name, string email)
+    public async Task<User> Execute(Guid id, string name, string email)
     {
-        var user = _repository.GetById(id);
+        var user = await _repository.GetByIdAsync(id);
 
         if (user == null)
             throw new Exception("User não encontrado");
 
         user.Update(name, email);
 
-        _repository.Update(user);
+        await _repository.UpdateAsync(user);
         
         return user;
     }

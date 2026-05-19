@@ -2,9 +2,9 @@ using Domain.Entities;
 
 public interface ICustomerRepository
 {
-    void Add(Customer customer);
-    Customer GetById(Guid id);
-
-    void Delete(Customer customer);
-    void SaveChanges();
+    Task AddAsync(Customer customer);
+    Task<Customer> GetByIdAsync(Guid id);
+    Task UpdateAsync(Customer customer);
+    Task DeleteAsync(Customer customer);
+    Task SaveChangesAsync();
 }

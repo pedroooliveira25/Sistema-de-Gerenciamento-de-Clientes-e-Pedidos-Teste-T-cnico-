@@ -1,16 +1,16 @@
 
 using Domain.Enums;
-namespace Application.UseCases.Users;
-public class CreateUser
+namespace Application.UseCases.Products;
+public class CreateProduct
 {
     private readonly IUserRepository _repository;
 
-    public CreateUser(IUserRepository repository)
+    public CreateProduct(IUserRepository repository)
     {
         _repository = repository;
     }
 
-    public async Task<User> Execute(string name, string email, string password, UserType userType)
+    public async Task<User> Execute(string name, string email, string password, string address)
     {
         if (string.IsNullOrWhiteSpace(name))
             throw new ArgumentException("Name inválido");
@@ -20,20 +20,19 @@ public class CreateUser
 
         if (string.IsNullOrWhiteSpace(password))
             throw new ArgumentException("Password inválido");
+        
+        if (string.IsNullOrWhiteSpace(password))
+            throw new ArgumentException("Password inválido");
 
-        if (!Enum.IsDefined(typeof(UserType), userType))
-            throw new ArgumentException("UserType inválido");
-            
-        var user = new User(
+        var product = new User(
             name,
             email,
-            password,
-            userType
+            password
         );
 
-        await _repository.AddAsync(user);
+        await _repository.AddAsync(product);
         await _repository.SaveChangesAsync();
 
-        return user;
+        return product;
     }
 }
