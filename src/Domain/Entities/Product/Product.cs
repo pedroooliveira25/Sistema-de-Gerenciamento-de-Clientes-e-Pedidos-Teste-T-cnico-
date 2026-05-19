@@ -8,6 +8,8 @@ public class Product : Base
 
 //personalizando ja minha tabela, para não ficar com o nome da classe.
 {
+    private string address;
+
     [Column("Product_Id")]
     public Guid ProductId {get; private set;}
 
@@ -64,5 +66,8 @@ public class Product : Base
     Stock -= quantity;
 }
 
-
+    public void Update(string name, string email)
+    {
+        throw new NotImplementedException();
+    }
 }
