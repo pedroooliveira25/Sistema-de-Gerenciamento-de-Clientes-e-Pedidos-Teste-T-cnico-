@@ -1,6 +1,6 @@
 
 using Domain.Enums;
-namespace Application.UseCases.Products;
+namespace Application.Products;
 public class CreateProduct
 {
     private readonly IProductRepository _repository;

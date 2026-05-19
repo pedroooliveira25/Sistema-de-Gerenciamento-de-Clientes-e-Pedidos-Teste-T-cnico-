@@ -1,7 +1,5 @@
-using Domain.Entities;
 
-namespace Application.UseCases.Products;
-
+namespace Application.Products;
 public class UpdateProduct
 {
     private readonly IProductRepository _repository;

@@ -1,8 +1,6 @@
 
 using Domain.Enums;
 
-namespace Application.Interface
-{
     public interface IOrderRepository
     {
         Task AddAsync(Order order);
@@ -11,4 +9,3 @@ namespace Application.Interface
         Task DeleteAsync(Order order);
         Task SaveChangesAsync();
     }
-}

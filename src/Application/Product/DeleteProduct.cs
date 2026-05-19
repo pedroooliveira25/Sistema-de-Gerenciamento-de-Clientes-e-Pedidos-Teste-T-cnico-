@@ -1,3 +1,5 @@
+namespace Application.Products;
+
 public class DeleteProduct
 {
     private readonly IProductRepository _repository;
