@@ -1,6 +1,7 @@
 
 using Domain.Enums;
-namespace Application.UseCases.Users;
+namespace Application.Users;
+
 public class CreateUser
 {
     private readonly IUserRepository _repository;
@@ -23,7 +24,7 @@ public class CreateUser
 
         if (!Enum.IsDefined(typeof(UserType), userType))
             throw new ArgumentException("UserType inválido");
-            
+
         var user = new User(
             name,
             email,

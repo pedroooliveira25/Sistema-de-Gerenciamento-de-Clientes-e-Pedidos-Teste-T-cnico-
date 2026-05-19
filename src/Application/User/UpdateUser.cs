@@ -1,6 +1,6 @@
 using Domain.Entities;
 
-namespace Application.UseCases.Users;
+namespace Application.Users;
 
 public class UpdateUser
 {
@@ -21,7 +21,7 @@ public class UpdateUser
         user.Update(name, email);
 
         await _repository.UpdateAsync(user);
-        
+
         return user;
     }
 }

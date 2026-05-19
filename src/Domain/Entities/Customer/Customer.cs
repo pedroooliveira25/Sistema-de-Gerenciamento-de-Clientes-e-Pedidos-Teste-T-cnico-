@@ -6,15 +6,16 @@ using Domain.Enums;
 [Table("Customer")]
 public class Customer : Base
 {
-    private StageAccount active;
-
+    public string Name { get; private set;}
+    public string Email { get; private set;}
     public string Password {get; private set;}
+    public StageAccount StageAccount { get; private set; }
     public string Address {get; private set;}
     public UserType UserType { get; private set;}
     public StageAccount Stage{get; private set;}
     public List<Order> Orders {get; private set;}
 
-   public Customer (string name, string email, Guid id, string password, string address, StageAccount stage)
+    public Customer(string name, string email, Guid id, string password, string address, UserType userType, StageAccount stageAccount)
     {
         ValidatePropertiesString(email, "email");
         ValidatePropertiesString(name, "name");
@@ -27,23 +28,15 @@ public class Customer : Base
         this.Email =email;
         this.Password = password;
 
-        this.Stage = stage;
-        this.UserType = UserType.CLIENTE; 
+        this.StageAccount = stageAccount;
+        this.UserType = userType; 
         
     }
 
-    public Customer(string name, string email, string password, string address, StageAccount active)
-    {
-        Name = name;
-        Email = email;
-        Password = password;
-        Address = address;
-        this.active = active;
-    }
 
     public void AddOrder(Order order)
     {
-        if (Stage == StageAccount.Blocked)
+        if (StageAccount == StageAccount.Blocked)
         {
             AddNotification("Order", "Cliente bloqueado não pode adicionar pedido");
                 return;  
@@ -71,12 +64,21 @@ public class Customer : Base
 
     public void ChangeStage(StageAccount newStage)
     {
-        if(Stage == StageAccount.Blocked && newStage == StageAccount.Active)
+        if(StageAccount == StageAccount.Blocked && newStage == StageAccount.Active)
         {
            return;
 
         }
-        this.Stage = newStage;
+        this.StageAccount = newStage;
+    }
+     public void Update(string name, string email, string password, string address, UserType userType, StageAccount stageAccount)
+    {
+        Name = name;
+        Email = email;
+        Password = password;
+        Address = address;
+        UserType = userType;
+        StageAccount = stageAccount;
     }
 }
                                             
