@@ -2,9 +2,9 @@ using Domain.Entities;
 
 public interface IUserRepository
 {
-    void Add(User user);
-    User GetById(Guid id);
-    void Update(User user);
-    void Delete(User user);
-    void SaveChanges();
+    Task AddAsync(User user);
+    Task<User> GetByIdAsync(Guid id);
+    Task UpdateAsync(User user);
+    Task DeleteAsync(User user);
+    Task SaveChangesAsync();
 }

@@ -7,14 +7,14 @@ public class DeleteUser
         _repository = repository;
     }
 
-    public void Execute(Guid id)
+    public async  Task Execute(Guid id)
     {
-        var user = _repository.GetById(id);
+        var user = await _repository.GetByIdAsync(id);
 
          if (user == null)
             throw new Exception("User não encontrado");
 
-        _repository.Delete(user);
-        _repository.SaveChanges();
+        await _repository.DeleteAsync(user);
+        await _repository.SaveChangesAsync();
     }
 }
