@@ -26,22 +26,22 @@ public class Order : Base
     {
         if (!ValidatePropertiesGuidId(customerId, "Customer id"))
         {
-            throw new ArgumentException("Customer id inválido");
+            throw new ArgumentException("Invalid customer ID");
         }
 
         if (!ValidatePropertiesGuidId(productId, "Product id"))
         {
-            throw new ArgumentException("Product id inválido");
+            throw new ArgumentException("Invalid product ID");
         }
 
         if (!ValidatePropertiesInt(quantity, "Quantity"))
         {
-            throw new ArgumentException("Quantity inválida");
+            throw new ArgumentException("Invalid quantity");
         }
 
         if (!ValidatePropertiesDecimal(value, "Value"))
         {
-            throw new ArgumentException("Value inválida");
+            throw new ArgumentException("Invalid value");
         }
 
 
@@ -68,16 +68,16 @@ public class Order : Base
     public void Update(int quantity, decimal value, StatusOrder status)
     {
         if (!ValidatePropertiesInt(quantity, "Quantity"))
-            throw new ArgumentException("Quantity inválida");
+            throw new ArgumentException("Invalid quantity");
 
         if (!ValidatePropertiesDecimal(value, "Value"))            
-            throw new ArgumentException("Valor inválido");
+            throw new ArgumentException("Invalid value");
 
         if (!ValidatePropertiesGuidId(Id, "Order id"))
-            throw new ArgumentException("Order id inválida");
+            throw new ArgumentException("Invalid order ID");
         if (status == StatusOrder.Sending)
         {
-            throw new InvalidOperationException("Não é possível atualizar um pedido confirmado.");
+            throw new InvalidOperationException("It is not possible to update a confirmed order.");
         }
 
         this.Quantity = quantity;

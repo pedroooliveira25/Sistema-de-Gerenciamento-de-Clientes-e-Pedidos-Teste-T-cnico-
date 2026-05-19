@@ -13,7 +13,7 @@ public class Customer : Base
     public string Address {get; private set;}
     public UserType UserType { get; private set;}
     public StageAccount Stage{get; private set;}
-    public List<Order> Orders {get; private set;}
+    public List<Order> Orders {get; private set;} = new();
 
     public Customer(string name, string email, Guid id, string password, string address, UserType userType, StageAccount stageAccount)
     {
@@ -38,7 +38,7 @@ public class Customer : Base
     {
         if (StageAccount == StageAccount.Blocked)
         {
-            AddNotification("Order", "Cliente bloqueado não pode adicionar pedido");
+            AddNotification("Order", "Blocked customer cannot add orders");
                 return;  
         }
 

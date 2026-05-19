@@ -32,19 +32,19 @@ public class Product : Base
     public Product (Guid productId, string nameProduct, decimal price, int quantity, int stock, StageProduct stageProduct)
     {
         if(!ValidatePropertiesString(nameProduct, "Name product"))
-            throw new Exception("Nome do produto inválido");
+            throw new Exception("Invalid product name");
 
         if(!ValidatePropertiesGuidId(productId , "Customer id")) 
-        throw new Exception("Customer id inválido");
+        throw new Exception("Invalid customer ID");
 
         if(!ValidatePropertiesDecimal(price, "Value"))
-        throw new Exception("Preço inválido");
+        throw new Exception("Invalid price");
 
         if(!ValidatePropertiesInt(quantity, "Value"))
-        throw new Exception("Quantidade inválida");
+        throw new Exception("Invalid quantity");
 
         if(!ValidatePropertiesInt(stock, "Value"))
-        throw new Exception("Estoque inválido");
+        throw new Exception("Invalid stock");
 
         this.ProductId = productId;
         this.NameProduct = nameProduct;
@@ -58,13 +58,13 @@ public class Product : Base
 {
     if (quantity <= 0)
     {
-        AddNotification(StageProduct.OutOfStock.ToString(), "Quantidade deve ser maior que zero");
+        AddNotification(StageProduct.OutOfStock.ToString(), "Quantity must be greater than zero");
         return;
     }
 
     if (Stock < quantity)
     {
-        AddNotification(StageProduct.InStock.ToString(), "Estoque insuficiente");
+        AddNotification(StageProduct.InStock.ToString(), "Insufficient stock");
         return;
     }
 
@@ -74,13 +74,13 @@ public class Product : Base
    public void Update(int quantity, decimal price, StageProduct stageProduct)
     {   
         if(!ValidatePropertiesDecimal(price, "Price"))
-            throw new Exception("Preço inválido");
+            throw new Exception("Invalid price");
         if(!ValidatePropertiesInt(quantity, "Quantity"))
-            throw new Exception("Quantidade inválida");
+            throw new Exception("Invalid quantity");
         if(!ValidatePropertiesInt(Stock, "Stock"))
-            throw new Exception("Estoque inválido");
+            throw new Exception("Invalid stock");
         if(stageProduct == StageProduct.OutOfStock)
-            throw new Exception("Produto fora de estoque");
+            throw new Exception("Product out of stock");
 
         this.Quantity = quantity;
         this.Price = price;

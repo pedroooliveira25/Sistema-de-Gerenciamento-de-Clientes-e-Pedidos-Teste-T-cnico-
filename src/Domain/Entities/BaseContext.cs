@@ -7,13 +7,13 @@ namespace Domain.Entities;
 
 public abstract class Base : Notifications
 {   
-    [Display(Name = "Codigo")]
+    [Display(Name = "Code")]
     public Guid Id {get; protected set;} = Guid.NewGuid();
 
-    [Display(Name = "Atualizado por")]
+    [Display(Name = "Updated by")]
     public Guid UpdateBy {get; protected set;}
 
-    [Display(Name = "Data/Hora de Atualização")]
+    [Display(Name = "Update Date/Time")]
     public DateTime UpdateDate {get; protected set;} = DateTime.UtcNow;
     
 

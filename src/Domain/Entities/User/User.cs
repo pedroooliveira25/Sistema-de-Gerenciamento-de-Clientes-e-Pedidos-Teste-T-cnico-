@@ -38,16 +38,16 @@ public class User : Base
     public void Update(string name, string email, string password, UserType userType, string address )
     {
         if(!ValidatePropertiesString(email, "email"))
-        throw new Exception("Email inválido");
+        throw new Exception("Invalid email");
 
         if(!ValidatePropertiesString(name, "name"))
-        throw new Exception("Nome inválido");
+        throw new Exception("Invalid name");
 
         if(!ValidatePropertiesString(password, "Password"))
-        throw new Exception("Password inválida"); 
+        throw new Exception("Invalid password"); 
 
         if(!ValidatePropertiesString(address, "Address"))
-        throw new Exception("Address inválida"); 
+        throw new Exception("Invalid address"); 
 
 
         this.Address = address;

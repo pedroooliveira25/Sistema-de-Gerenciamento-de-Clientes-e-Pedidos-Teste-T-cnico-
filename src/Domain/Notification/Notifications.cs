@@ -35,7 +35,7 @@ public class Notifications
         if(string.IsNullOrWhiteSpace(value))
         {
             NotificationList.Add(new Notifications {
-                Message = "Campo {propertyName} é obrigatorio",
+                Message = "Field {propertyName} is required",
                 PropertyName = PropertyName
             });
             return false; 
@@ -48,7 +48,7 @@ public class Notifications
         if(value <= 0 )
         {
             NotificationList.Add(new Notifications {
-                Message = "Campo {propertyName} é inválido",
+                Message = "Field {propertyName} is invalid",
                 PropertyName = PropertyName
             });
             return false; 
@@ -62,7 +62,7 @@ public class Notifications
         if(id == Guid.Empty )
         {
             NotificationList.Add(new Notifications {
-                Message = "Campo {propertyName} é obrigatório",
+                Message = "Field {propertyName} is required",
                 PropertyName = PropertyName
             });
             return false; 
@@ -75,7 +75,7 @@ public class Notifications
         if(value <= 0 )
         {
             NotificationList.Add(new Notifications {
-                Message = "Campo {propertyName} é obrigatório",
+                Message = "Field {propertyName} is required",
                 PropertyName = PropertyName
             });
             return false; 
