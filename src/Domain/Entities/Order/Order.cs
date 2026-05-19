@@ -3,14 +3,21 @@ using Domain.Entities;
 
 namespace Domain.Enums;
 
+[Table("Oders")]
 public class Order : Base
 {
-    [ForeignKey("Customer")]
+    [Column("Customer_Id")]
     public Guid CustomerId { get; private set; }
+   
+    [Column("Product_Id")]
     public Guid ProductId { get; private set; }
+    [Column("Quantity")]
     public int Quantity { get; private set; }
+    [Column("Value")]
     public decimal Value { get; private set; }
+    [Column("OrderDate")]
     public DateTime OrderDate { get; private set; }
+    [Column("Status")]
     public StatusOrder Status { get; private set; }
 
 
@@ -60,8 +67,21 @@ public class Order : Base
 
     public void Update(int quantity, decimal value, StatusOrder status)
     {
-        Quantity = quantity;
-        Value = value;
-        Status = status;
+        if (!ValidatePropertiesInt(quantity, "Quantity"))
+            throw new ArgumentException("Quantity inválida");
+
+        if (!ValidatePropertiesDecimal(value, "Value"))            
+            throw new ArgumentException("Valor inválido");
+
+        if (!ValidatePropertiesGuidId(Id, "Order id"))
+            throw new ArgumentException("Order id inválida");
+        if (status == StatusOrder.Sending)
+        {
+            throw new InvalidOperationException("Não é possível atualizar um pedido confirmado.");
+        }
+
+        this.Quantity = quantity;
+        this.Value = value;
+        this.Status = status;
     }
 }

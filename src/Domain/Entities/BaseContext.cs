@@ -15,9 +15,6 @@ public abstract class Base : Notifications
 
     [Display(Name = "Data/Hora")]
     public DateTime UpdateDate {get; protected set;}
-
-    [Display(Name = "Status")]   
-     public StageAccount Status {get; protected set;}
     
     [Display(Name = "Name")]
     public string? Name {get; protected set;} 

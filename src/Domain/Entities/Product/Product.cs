@@ -6,9 +6,8 @@ using Domain.Enums;
 [Table("Products")]
 public class Product : Base
 
-//personalizando ja minha tabela, para não ficar com o nome da classe.
+
 {
-    private string address;
 
     [Column("Product_Id")]
     public Guid ProductId {get; private set;}
@@ -26,27 +25,33 @@ public class Product : Base
     public int Stock {get; private set;}
 
     [Column("Stage_Product")]
-    public StageProduct stageProduct {get; private set;}
+    public StageProduct StageProduct {get; private set;}
     
 
    
     public Product (Guid productId, string nameProduct, decimal price, int quantity, int stock, StageProduct stageProduct)
     {
+        if(!ValidatePropertiesString(nameProduct, "Name product"))
+            throw new Exception("Nome do produto inválido");
+
         if(!ValidatePropertiesGuidId(productId , "Customer id")) 
-        return;
+        throw new Exception("Customer id inválido");
+
         if(!ValidatePropertiesDecimal(price, "Value"))
-        return;
+        throw new Exception("Preço inválido");
+
         if(!ValidatePropertiesInt(quantity, "Value"))
-        return;
-        if(!ValidatePropertiesInt(Stock, "Value"))
-        return;
+        throw new Exception("Quantidade inválida");
+
+        if(!ValidatePropertiesInt(stock, "Value"))
+        throw new Exception("Estoque inválido");
 
         this.ProductId = productId;
         this.NameProduct = nameProduct;
         this.Price = price;
         this.Quantity = quantity;
         this.Stock = stock;
-        this.stageProduct = stageProduct;
+        this.StageProduct = stageProduct;
     }
 
     public void DecreaseStock(int quantity)
@@ -66,8 +71,19 @@ public class Product : Base
     Stock -= quantity;
 }
 
-    public void Update(string name, string email)
-    {
-        throw new NotImplementedException();
+   public void Update(int quantity, decimal price, StageProduct stageProduct)
+    {   
+        if(!ValidatePropertiesDecimal(price, "Price"))
+            throw new Exception("Preço inválido");
+        if(!ValidatePropertiesInt(quantity, "Quantity"))
+            throw new Exception("Quantidade inválida");
+        if(!ValidatePropertiesInt(Stock, "Stock"))
+            throw new Exception("Estoque inválido");
+        if(stageProduct == StageProduct.OutOfStock)
+            throw new Exception("Produto fora de estoque");
+
+        this.Quantity = quantity;
+        this.Price = price;
+        this.StageProduct = stageProduct;
     }
 }
