@@ -26,6 +26,8 @@ public class Product : Base
 
     [Column("Stage_Product")]
     public StageProduct StageProduct {get; private set;}
+
+    public List<Order> Orders { get; set; } = new();
     
 
    

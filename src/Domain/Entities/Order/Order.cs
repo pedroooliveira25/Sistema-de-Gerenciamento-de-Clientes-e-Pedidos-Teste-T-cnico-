@@ -1,16 +1,12 @@
 using System.ComponentModel.DataAnnotations.Schema;
-using Domain.Entities;
+using Domain.Enums;
 
-namespace Domain.Enums;
+namespace Domain.Entities;
 
 [Table("Oders")]
 public class Order : Base
 {
-    [Column("Customer_Id")]
-    public Guid CustomerId { get; private set; }
-   
-    [Column("Product_Id")]
-    public Guid ProductId { get; private set; }
+
     [Column("Quantity")]
     public int Quantity { get; private set; }
     [Column("Value")]
@@ -21,7 +17,15 @@ public class Order : Base
     public StatusOrder Status { get; private set; }
 
 
+    [Column("Customer_Id")]
+    public Guid CustomerId { get; private set; }
+    public Customer? Customer { get; private set; }
 
+    [Column("Product_Id")]
+    public Guid ProductId { get; private set; }   
+    public Product? Product { get; private set; }
+
+    
     public Order(Guid customerId, Guid productId, int quantity, decimal value, DateTime orderDate, StatusOrder status)
     {
         if (!ValidatePropertiesGuidId(customerId, "Customer id"))

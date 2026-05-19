@@ -15,6 +15,7 @@ public class Customer : Base
     public StageAccount Stage{get; private set;}
     public List<Order> Orders {get; private set;} = new();
 
+
     public Customer(string name, string email, Guid id, string password, string address, UserType userType, StageAccount stageAccount)
     {
         ValidatePropertiesString(email, "email");
