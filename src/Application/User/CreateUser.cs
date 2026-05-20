@@ -11,7 +11,7 @@ public class CreateUser
         _repository = repository;
     }
 
-    public async Task<User> Execute(string name, string email, string password, UserType userType)
+    public async Task<User> Execute(string name, string email, string passwordHash, UserType userType)
     {
         if (string.IsNullOrWhiteSpace(name))
             throw new ArgumentException("Name inválido");
@@ -19,7 +19,7 @@ public class CreateUser
         if (string.IsNullOrWhiteSpace(email))
             throw new ArgumentException("Email inválido");
 
-        if (string.IsNullOrWhiteSpace(password))
+        if (string.IsNullOrWhiteSpace(passwordHash))
             throw new ArgumentException("Password inválido");
 
         if (!Enum.IsDefined(typeof(UserType), userType))
@@ -28,7 +28,7 @@ public class CreateUser
         var user = new User(
             name,
             email,
-            password,
+            passwordHash,
             userType
         );
 

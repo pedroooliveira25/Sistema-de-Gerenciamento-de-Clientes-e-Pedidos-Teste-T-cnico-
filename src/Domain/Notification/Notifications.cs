@@ -1,6 +1,7 @@
+
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Reflection.Metadata;
 using System.Text.Json.Serialization;
+
 
 public class Notifications
 {
@@ -40,6 +41,20 @@ public class Notifications
             });
             return false; 
         }
+            return true;
+    }
+
+     public bool ValidatePropertiesPassword(string value, string PropertyName)
+    {
+        if(string.IsNullOrWhiteSpace(value))
+        {
+            NotificationList.Add(new Notifications {
+                Message = "Field {PropertyName} is required",
+                PropertyName = PropertyName
+            });
+            return false; 
+        } 
+        
             return true;
     }
 

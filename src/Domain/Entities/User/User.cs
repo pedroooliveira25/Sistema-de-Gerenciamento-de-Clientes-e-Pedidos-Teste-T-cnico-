@@ -1,3 +1,6 @@
+using System.Security.Cryptography;
+using System.Text;
+
 using System.ComponentModel.DataAnnotations.Schema;
 using Domain.Entities;
 using Domain.Enums;
@@ -17,23 +20,39 @@ public class User : Base
 
     public string Email {get; private set;}
 
-    public User(string name, string email, string password, UserType userType, string address)
+    public User(string name, string email, string passwordHash, UserType userType, string address)
     {   
         ValidatePropertiesString(email, "email");
         ValidatePropertiesString(name, "name");
-        ValidatePropertiesString(password, "Password");
+        GeneratePassword(passwordHash);
         ValidatePropertiesString(address, "Address");
+      
 
         this.Id = Guid.NewGuid(); 
         this.Address = address;
         this.NameUser = name; 
         this.Email =email;
-        this.Password = password;
+        this.Password = passwordHash;
 
         this.UserType = userType; 
     }
 
     public List<User>Users {get; set;} = new List<User>();
+
+    public void GeneratePassword(string password )
+    {   
+    
+        if (ValidatePropertiesPassword(password, "password"))
+        {
+       
+        byte[] bytes = Encoding.UTF8.GetBytes(password); 
+        using SHA256 sha256 = SHA256.Create();
+
+        byte[] hashBytes = sha256.ComputeHash(bytes);
+
+        string hash = Convert.ToHexString(hashBytes);
+        } 
+    }
 
     public void Update(string name, string email, string password, UserType userType, string address )
     {

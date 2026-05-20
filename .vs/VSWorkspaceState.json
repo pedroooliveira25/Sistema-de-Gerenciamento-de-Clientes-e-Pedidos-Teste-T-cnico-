@@ -3,10 +3,8 @@
     "",
     "\\src",
     "\\src\\Application",
-    "\\src\\Domain\\Entities",
-    "\\src\\Domain\\Entities\\Order",
-    "\\src\\Domain\\Entities\\Product"
+    "\\src\\Application\\Controller"
   ],
-  "SelectedNode": "\\src\\Application\\Application.csproj",
+  "SelectedNode": "\\src\\Application\\Controller",
   "PreviewInSolutionExplorer": false
 }
