@@ -1,8 +1,24 @@
 {
   "version": 2,
-  "dgSpecHash": "nC/21On2Xgg=",
-  "success": true,
+  "dgSpecHash": "5A7nJd1sn7A=",
+  "success": false,
   "projectFilePath": "C:\\Users\\Pedro Oliveira\\Documents\\Ultron\\src\\Application\\Application.csproj",
-  "expectedPackageFiles": [],
-  "logs": []
+  "expectedPackageFiles": [
+    "C:\\Users\\Pedro Oliveira\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.27\\microsoft.netcore.app.ref.8.0.27.nupkg.sha512",
+    "C:\\Users\\Pedro Oliveira\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.27\\microsoft.windowsdesktop.app.ref.8.0.27.nupkg.sha512",
+    "C:\\Users\\Pedro Oliveira\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.27\\microsoft.aspnetcore.app.ref.8.0.27.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1201",
+      "level": "Error",
+      "message": "Project Domain is not compatible with net8.0 (.NETCoreApp,Version=v8.0). Project Domain supports: net10.0 (.NETCoreApp,Version=v10.0)",
+      "projectPath": "C:\\Users\\Pedro Oliveira\\Documents\\Ultron\\src\\Application\\Application.csproj",
+      "filePath": "C:\\Users\\Pedro Oliveira\\Documents\\Ultron\\src\\Application\\Application.csproj",
+      "libraryId": "Domain",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }
