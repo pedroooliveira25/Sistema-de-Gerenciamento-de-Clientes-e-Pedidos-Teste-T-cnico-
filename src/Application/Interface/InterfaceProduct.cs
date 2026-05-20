@@ -2,8 +2,8 @@
 public interface IProductRepository
 {
     Task CreateProductAsync(Product product);
-    Task<Product> GetByIdAsync(Guid id);
-    Task UpdateAsync(Product product);
-    Task DeleteAsync(Product product);
-    Task SaveChangesAsync();
+    Task<Product?> GetByIdAsync(Guid id);
+    void UpdateAsync(Product product);
+    void DeleteAsync(Product product);
+    
 }
