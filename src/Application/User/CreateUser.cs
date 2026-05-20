@@ -16,7 +16,7 @@ public class CreateUser
         if (string.IsNullOrWhiteSpace(name))
             throw new ArgumentException("Name inválido");
 
-        if (string.IsNullOrWhiteSpace(email))
+        if (email.contains("@") || string.IsNullOrWhiteSpace(email))
             throw new ArgumentException("Email inválido");
 
         if (string.IsNullOrWhiteSpace(passwordHash))
