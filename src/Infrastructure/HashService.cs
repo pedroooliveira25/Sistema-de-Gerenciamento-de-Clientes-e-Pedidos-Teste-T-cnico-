@@ -1,7 +1,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-public class Hash
+public class HashService
 {
     public string GenerateSha256(string input)
     {

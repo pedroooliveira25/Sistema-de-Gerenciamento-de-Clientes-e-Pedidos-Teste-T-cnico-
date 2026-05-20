@@ -21,11 +21,11 @@ public class User : Base
     [Column("Email")]
     public string Email {get; private set;}
 
-    public User(string name, string email, string passwordHash, UserType userType, string address)
+    public User(string name, string email, string password, UserType userType, string address)
     {   
         ValidatePropertiesString(email, "email");
         ValidatePropertiesString(name, "name");
-        GeneratePassword(passwordHash);
+        ValidatePropertiesString(password, "password");
         ValidatePropertiesString(address, "Address");
       
 
@@ -33,27 +33,14 @@ public class User : Base
         this.Address = address;
         this.NameUser = name; 
         this.Email =email;
-        this.Password = passwordHash;
+        this.Password = password;
 
         this.UserType = userType; 
     }
 
     public List<User>Users {get; set;} = new List<User>();
 
-    public void GeneratePassword(string password )
-    {   
-    
-        if (ValidatePropertiesPassword(password, "password"))
-        {
-       
-        byte[] bytes = Encoding.UTF8.GetBytes(password); 
-        using SHA256 sha256 = SHA256.Create();
 
-        byte[] hashBytes = sha256.ComputeHash(bytes);
-
-        string hash = Convert.ToHexString(hashBytes);
-        } 
-    }
 
     public void Update(string name, string email, string password, UserType userType, string address )
     {

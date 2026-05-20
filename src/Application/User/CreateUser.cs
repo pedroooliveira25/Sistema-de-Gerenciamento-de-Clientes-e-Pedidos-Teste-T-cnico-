@@ -3,12 +3,14 @@ using Domain.Enums;
 namespace Application.Users;
 
 public class CreateUser
-{
+{   
+    private readonly HashService _hashService;
     private readonly IUserRepository _repository;
 
     public CreateUser(IUserRepository repository)
     {
         _repository = repository;
+        _hashService = hashService;
     }
 
     public async Task<User> Execute(string name, string email, string passwordHash, UserType userType)
