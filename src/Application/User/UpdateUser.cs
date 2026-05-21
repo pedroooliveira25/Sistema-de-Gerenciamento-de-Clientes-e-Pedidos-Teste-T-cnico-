@@ -1,26 +1,29 @@
-using Domain.Entities;
 
-namespace Application.Users;
+using Domain.Enums;
+
+namespace Application.Interfaces;
 
 public class UpdateUser
 {
-    private readonly IUserRepository _repository;
+    private readonly IUserRepository _productRepository;
 
-    public UpdateUser(IUserRepository repository)
+    public UpdateUser(IUserRepository userRepository)
     {
-        _repository = repository;
+        _productRepository = userRepository;
     }
 
-    public async Task<User> Execute(Guid id, string name, string email)
+    public async Task<User> Execute(Guid id, string name, string email, string password, string address, UserType userType)
     {
-        var user = await _repository.GetByIdAsync(id);
+        var user = await _productRepository.GetByIdAsync(id);
 
         if (user == null)
             throw new Exception("User não encontrado");
 
-        user.Update(name, email);
+        user.Update( email, name, password, userType,  address);
 
-        await _repository.UpdateAsync(user);
+        await _productRepository.UpdateAsync(user);
+        await _productRepository.AddAsync(user);
+        await _productRepository.SaveChangesAsync();
 
         return user;
     }

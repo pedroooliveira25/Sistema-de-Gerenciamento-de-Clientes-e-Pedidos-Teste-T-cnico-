@@ -11,7 +11,6 @@ namespace Api.Controller;
 public class AuthController : ControllerBase
 {
     private readonly CreateUser _createUser;
-
     public AuthController(CreateUser createUser)
     {
         _createUser = createUser;
@@ -37,7 +36,7 @@ public class AuthController : ControllerBase
 
     public async Task<IActionResult> Login([FromBody] LoginRequest request)
     {
-        var user = await _userRepository.GetByEmailAsync(request.Password);
+        var user = await IUserRepository.GetByEmailAsync(request.Password);
 
         if (user == null)
         return Unauthorized("Not found user");

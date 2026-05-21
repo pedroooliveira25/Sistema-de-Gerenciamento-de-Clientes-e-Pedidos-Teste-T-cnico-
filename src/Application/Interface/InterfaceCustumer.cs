@@ -5,5 +5,6 @@ public interface ICustomerRepository
     Task<Customer?> GetByIdAsync(Guid id);
     void UpdateAsync(Customer customer);
     void DeleteAsync(Customer customer);
+    Task SaveChangesAsync();
   
 }

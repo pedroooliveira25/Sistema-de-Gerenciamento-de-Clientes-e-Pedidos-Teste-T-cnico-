@@ -1,5 +1,5 @@
 
-using Domain.Enums;
+namespace Domain.Entities;
 
     public interface IOrderRepository
     {
@@ -7,5 +7,6 @@ using Domain.Enums;
         Task<Order?> GetByIdAsync(Guid id);
         void UpdateAsync(Order order);
         void DeleteAsync(Order order);
+        Task SaveChangesAsync();
         
     }

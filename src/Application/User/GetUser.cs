@@ -1,17 +1,18 @@
-namespace Application.Users;
+
+namespace Application.Interfaces;
 
 public class GetUser
 {
-    private readonly IUserRepository _repository;
+    private readonly IUserRepository _userRepository;
 
-    public GetUser(IUserRepository repository)
+    public GetUser(IUserRepository userRepository)
     {
-        _repository = repository;
+        _userRepository = userRepository;
     }
 
     public async Task<User> Execute(Guid id)
     {
-        var user = await _repository.GetByIdAsync(id);
+        var user = await _userRepository.GetByIdAsync(id);
 
         if (user == null)
             throw new Exception("User não encontrado");

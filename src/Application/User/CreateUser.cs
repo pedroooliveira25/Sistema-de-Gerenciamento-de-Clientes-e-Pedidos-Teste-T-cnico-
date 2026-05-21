@@ -46,6 +46,7 @@ public class CreateUser
         );
 
         await _userRepository.AddAsync(user);
+        await _userRepository.SaveChangesAsync();
 
         var customer = new Customer(
             name,
@@ -58,6 +59,7 @@ public class CreateUser
         );
         
         await _customerRepository.AddAsync(customer);
+        await _userRepository.SaveChangesAsync();
 
         return user;
     }

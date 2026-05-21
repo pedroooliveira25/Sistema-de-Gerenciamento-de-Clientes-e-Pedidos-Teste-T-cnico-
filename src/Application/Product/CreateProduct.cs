@@ -3,11 +3,11 @@ using Domain.Enums;
 namespace Application.Products;
 public class CreateProduct
 {
-    private readonly IProductRepository _repository;
+    private readonly IProductRepository _productRepository;
 
-    public CreateProduct(IProductRepository repository)
+    public CreateProduct(IProductRepository productRepository)
     {
-        _repository = repository;
+       _productRepository = productRepository;
     }
 
     public async Task<Product> Execute(string nameProduct, Guid productId, decimal price, int stock, int quantity, StageProduct stageProduct)
@@ -31,8 +31,8 @@ public class CreateProduct
             stageProduct
         );
 
-        await _repository.AddAsync(product);
-        await _repository.SaveChangesAsync();
+        await _productRepository.AddAsync(product);
+        await _productRepository.SaveChangesAsync();
 
         return product;
     }

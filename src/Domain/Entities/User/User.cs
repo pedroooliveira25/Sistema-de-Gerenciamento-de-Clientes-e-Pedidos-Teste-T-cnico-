@@ -53,7 +53,7 @@ public class User : Base
         throw new Exception("Invalid password"); 
 
         if(!ValidatePropertiesString(address, "Address"))
-        throw new Exception("Invalid password"); 
+        throw new Exception("Invalid address"); 
 
 
         this.NameUser = name; 

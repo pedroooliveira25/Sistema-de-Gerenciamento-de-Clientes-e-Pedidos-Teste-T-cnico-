@@ -1,21 +1,21 @@
 namespace Application.Interfaces.Users;
 public class DeleteUser
 {
-    private readonly IUserRepository _repository;
+    private readonly IUserRepository _userRepository;
 
-    public DeleteUser(IUserRepository repository)
+    public DeleteUser(IUserRepository userRepository)
     {
-        _repository = repository;
+        _userRepository = userRepository;
     }
 
     public async Task Execute(Guid id)
     {
-        var user = await _repository.GetByIdAsync(id);
+        var user = await _userRepository.GetByIdAsync(id);
 
         if (user == null)
             throw new Exception("User não encontrado");
 
-        await _repository.DeleteAsync(user);
-
+        await _userRepository.DeleteAsync(user);
+        await _userRepository.SaveChangesAsync();
     }
 }
