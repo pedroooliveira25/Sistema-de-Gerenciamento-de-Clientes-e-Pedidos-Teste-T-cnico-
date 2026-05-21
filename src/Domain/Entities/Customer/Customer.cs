@@ -13,23 +13,24 @@ public class Customer : Base
     public string Address {get; private set;}
     public UserType UserType { get; private set;}
     public StageAccount Stage{get; private set;}
+    public Guid UserId {get; private set;}
     public List<Order> Orders {get; private set;} = new();
 
 
-    public Customer(string name, string email, Guid id, string password, string address, UserType userType, StageAccount stageAccount)
+    public Customer(string name, string email, Guid userId, string password, string address, UserType userType, StageAccount stageAccount)
     {
         ValidatePropertiesString(email, "email");
         ValidatePropertiesString(name, "name");
         ValidatePropertiesString(password, "password");
-        ValidatePropertiesGuidId(id, "id");
+        ValidatePropertiesGuidId(userId, "id");
 
-        this.Id = Guid.NewGuid(); 
+        this.UserId = userId; 
         this.Address = address;
         this.Name = name; 
         this.Email =email;
         this.Password = password;
 
-        this.StageAccount = stageAccount;
+        this.StageAccount = StageAccount.Active;
         this.UserType = userType; 
         
     }

@@ -1,5 +1,4 @@
-namespace Application.Users;
-
+namespace Application.Interfaces.Users;
 public class DeleteUser
 {
     private readonly IUserRepository _repository;
@@ -17,6 +16,6 @@ public class DeleteUser
             throw new Exception("User não encontrado");
 
         await _repository.DeleteAsync(user);
-        await _repository.SaveChangesAsync();
+
     }
 }

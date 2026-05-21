@@ -18,7 +18,10 @@ public class User : Base
     [Column("Email")]
     public string Email {get; private set;}
 
-    public User(string name, string email, string password, UserType userType)
+    [Column("Email")]
+    public string? Address {get; private set;}
+
+    public User(string name, string email, string password, UserType userType, string address)
     {   
         ValidatePropertiesString(email, "email");
         ValidatePropertiesString(name, "name");
@@ -31,13 +34,14 @@ public class User : Base
         this.Password = password;
 
         this.UserType = userType; 
+        this.Address = address;
     }
 
     public List<User>Users {get; set;} = new List<User>();
 
 
 
-    public void Update(string name, string email, string password, UserType userType)
+    public void Update(string name, string email, string password, UserType userType, string address)
     {
         if(!ValidatePropertiesString(email, "email"))
         throw new Exception("Invalid email");
@@ -48,11 +52,15 @@ public class User : Base
         if(!ValidatePropertiesString(password, "Password"))
         throw new Exception("Invalid password"); 
 
+        if(!ValidatePropertiesString(address, "Address"))
+        throw new Exception("Invalid password"); 
+
 
         this.NameUser = name; 
         this.Email =email;
         this.Password = password;
         this.UserType = userType; 
+        this.Address = address;
     }
    
 } 

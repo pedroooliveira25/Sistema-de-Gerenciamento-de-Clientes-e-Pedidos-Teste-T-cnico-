@@ -1,7 +1,10 @@
 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Application.Users;
+using Application.Interfaces;
+using Application.Dtos;
+
+namespace Api.Controller;
 
 [ApiController]
 [Route("api/auth")]
@@ -19,10 +22,11 @@ public class AuthController : ControllerBase
     public async Task<IActionResult> Signup([FromBody] SignupRequest request)
     {
         var user = await _createUser.Execute(
-            request.Name,
+            request.NameUser,
             request.Email,
             request.Password,
-            request.UserType
+            request.UserType,
+            request.Address
         );
 
         return Ok(user);

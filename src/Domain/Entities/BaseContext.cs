@@ -8,7 +8,7 @@ namespace Domain.Entities;
 public abstract class Base : Notifications
 {   
     [Display(Name = "Code")]
-    public Guid Id {get; protected set;} = Guid.NewGuid();
+    public Guid Id {get; set;} = Guid.NewGuid();
 
     [Display(Name = "Updated by")]
     public Guid UpdateBy {get; protected set;}

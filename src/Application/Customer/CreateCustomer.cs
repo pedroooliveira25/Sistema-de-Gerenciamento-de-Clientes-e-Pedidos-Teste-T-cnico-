@@ -42,7 +42,6 @@ public class CreateCustomer
         );
 
         await _repository.AddAsync(customer);
-        await _repository.SaveChangesAsync();
 
         return customer;
     }

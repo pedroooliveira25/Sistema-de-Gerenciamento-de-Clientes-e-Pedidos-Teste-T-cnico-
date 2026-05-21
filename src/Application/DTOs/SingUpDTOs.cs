@@ -1,4 +1,8 @@
-public class CreatRequestSingUp 
+namespace Application.Dtos;
+using System.ComponentModel.DataAnnotations;
+using Domain.Enums;
+
+public class SignupRequest 
 {
 
     [Required]
@@ -12,5 +16,7 @@ public class CreatRequestSingUp
      [Required]
      [MinLength(6)]
      public string Password {get; set;}
+
+     public UserType UserType {get; set;}
 
 }
