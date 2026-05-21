@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "nOFUt27EyNU=",
+  "dgSpecHash": "OkWYq91ZIkc=",
   "success": true,
   "projectFilePath": "C:\\Users\\Pedro Oliveira\\Documents\\Ultron\\src\\Domain\\Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Pedro Oliveira\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.27\\microsoft.netcore.app.ref.8.0.27.nupkg.sha512",
+    "C:\\Users\\Pedro Oliveira\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.27\\microsoft.windowsdesktop.app.ref.8.0.27.nupkg.sha512",
+    "C:\\Users\\Pedro Oliveira\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.27\\microsoft.aspnetcore.app.ref.8.0.27.nupkg.sha512"
+  ],
   "logs": []
 }

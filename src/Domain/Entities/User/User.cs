@@ -15,22 +15,17 @@ public class User : Base
     [Column("UserType")]
     public UserType UserType { get; private set;}
 
-    [Column("Address")]
-    public string Address {get; private set;}
-    
     [Column("Email")]
     public string Email {get; private set;}
 
-    public User(string name, string email, string password, UserType userType, string address)
+    public User(string name, string email, string password, UserType userType)
     {   
         ValidatePropertiesString(email, "email");
         ValidatePropertiesString(name, "name");
         ValidatePropertiesString(password, "password");
-        ValidatePropertiesString(address, "Address");
-      
+
 
         this.Id = Guid.NewGuid(); 
-        this.Address = address;
         this.NameUser = name; 
         this.Email =email;
         this.Password = password;
@@ -42,7 +37,7 @@ public class User : Base
 
 
 
-    public void Update(string name, string email, string password, UserType userType, string address )
+    public void Update(string name, string email, string password, UserType userType)
     {
         if(!ValidatePropertiesString(email, "email"))
         throw new Exception("Invalid email");
@@ -53,11 +48,7 @@ public class User : Base
         if(!ValidatePropertiesString(password, "Password"))
         throw new Exception("Invalid password"); 
 
-        if(!ValidatePropertiesString(address, "Address"))
-        throw new Exception("Invalid address"); 
 
-
-        this.Address = address;
         this.NameUser = name; 
         this.Email =email;
         this.Password = password;

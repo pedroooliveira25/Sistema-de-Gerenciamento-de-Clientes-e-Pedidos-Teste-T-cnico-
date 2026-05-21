@@ -1,5 +1,6 @@
 
 using Domain.Enums;
+using Infrastructure;
 namespace Application.Users;
 
 public class CreateUser
@@ -7,7 +8,7 @@ public class CreateUser
     private readonly HashService _hashService;
     private readonly IUserRepository _repository;
 
-    public CreateUser(IUserRepository repository)
+    public CreateUser(IUserRepository repository, HashService hashService)
     {
         _repository = repository;
         _hashService = hashService;
@@ -18,7 +19,7 @@ public class CreateUser
         if (string.IsNullOrWhiteSpace(name))
             throw new ArgumentException("Name inválido");
 
-        if (email.contains("@") || string.IsNullOrWhiteSpace(email))
+        if (email.Contains("@") || string.IsNullOrWhiteSpace(email))
             throw new ArgumentException("Email inválido");
 
         if (string.IsNullOrWhiteSpace(passwordHash))
@@ -35,7 +36,6 @@ public class CreateUser
         );
 
         await _repository.AddAsync(user);
-        await _repository.SaveChangesAsync();
 
         return user;
     }
