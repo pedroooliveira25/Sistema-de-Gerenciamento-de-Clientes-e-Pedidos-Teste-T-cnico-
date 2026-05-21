@@ -14,13 +14,13 @@ public class CreateProduct
     {
 
         if (string.IsNullOrWhiteSpace(nameProduct))
-            throw new ArgumentException("Name inválido");
+            throw new ArgumentException("Name is invalid");
 
         if (price <= 0)
-            throw new ArgumentException("Preço inválido");
+            throw new ArgumentException("Price is invalid");
 
         if (stock < 0)
-            throw new ArgumentException("Estoque inválido");
+            throw new ArgumentException("Stock is invalid");
 
         var product = new Product(
             productId,

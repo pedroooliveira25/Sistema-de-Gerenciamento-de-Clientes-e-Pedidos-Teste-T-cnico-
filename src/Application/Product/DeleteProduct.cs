@@ -2,21 +2,21 @@ namespace Application.Products;
 
 public class DeleteProduct
 {
-    private readonly IProductRepository _repository;
+    private readonly IProductRepository _productRepository;
 
-    public DeleteProduct(IProductRepository repository)
+    public DeleteProduct(IProductRepository productRepository)
     {
-        _repository = repository;
+        _productRepository = productRepository;
     }
 
     public async Task Execute(Guid id)
     {
-        var product = await _repository.GetByIdAsync(id);
+        var product = await _productRepository.GetByIdAsync(id);
 
         if (product == null)
-            throw new Exception("Product não encontrado");
+            throw new Exception("Product not found");
 
-        await _repository.DeleteAsync(product);
-        await _repository.SaveChangesAsync();
+        await _productRepository .DeleteAsync(product);
+        await _productRepository .SaveChangesAsync();
     }
 }

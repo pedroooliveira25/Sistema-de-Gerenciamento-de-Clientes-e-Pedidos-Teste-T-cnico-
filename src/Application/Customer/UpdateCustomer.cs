@@ -4,24 +4,25 @@ namespace Application.Customers;
 
 public class UpdateCustomer
 {
-    private readonly ICustomerRepository _repository;
+    private readonly ICustomerRepository _customerRepository;
 
-    public UpdateCustomer(ICustomerRepository repository)
+    public UpdateCustomer(ICustomerRepository customerRepository)
     {
-        _repository = repository;
+        _customerRepository = customerRepository;
     }
 
     public async Task<Customer> Execute(Guid id, string name, string email, string password, string address, UserType userType, StageAccount stageAccount)
     {
-        var customer = await _repository.GetByIdAsync(id);
+        var customer = await _customerRepository.GetByIdAsync(id);
 
         if (customer == null)
-            throw new Exception("Customer não encontrado");
+            throw new Exception("Customer not found");
 
         customer.Update(name, email, password, address, userType, stageAccount);
 
-        await _repository.UpdateAsync(customer);
-        await _repository.SaveChangesAsync();
+        await _customerRepository.UpdateAsync(customer);
+        await _customerRepository.AddAsync(customer);
+        await _customerRepository.SaveChangesAsync();
 
         return customer;
     }

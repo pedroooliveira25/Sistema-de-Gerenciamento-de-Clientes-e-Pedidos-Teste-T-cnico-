@@ -5,8 +5,8 @@ namespace Domain.Entities;
     {
         Task AddAsync(Order order);
         Task<Order?> GetByIdAsync(Guid id);
-        void UpdateAsync(Order order);
-        void DeleteAsync(Order order);
+        Task UpdateAsync(Order order);
+        Task DeleteAsync(Order order);
         Task SaveChangesAsync();
         
     }

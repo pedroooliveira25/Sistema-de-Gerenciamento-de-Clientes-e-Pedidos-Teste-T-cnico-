@@ -15,7 +15,7 @@ public class GetUser
         var user = await _userRepository.GetByIdAsync(id);
 
         if (user == null)
-            throw new Exception("User não encontrado");
+            throw new Exception("Product not found");
 
         return user;
     }

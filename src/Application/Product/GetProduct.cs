@@ -14,7 +14,7 @@ public class GetProduct
         var product = await _repository.GetByIdAsync(id);
 
         if (product == null)
-            throw new Exception("Product não encontrado");
+            throw new Exception("Product not found");
 
         return product;
     }

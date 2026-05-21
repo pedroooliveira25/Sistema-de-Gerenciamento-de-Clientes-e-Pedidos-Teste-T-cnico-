@@ -2,22 +2,22 @@ namespace Application.Customers
 {
     public class DeleteCustomer
     {
-        private readonly ICustomerRepository _repository;
+        private readonly ICustomerRepository _customerRepository;
 
-        public DeleteCustomer(ICustomerRepository repository)
+        public DeleteCustomer(ICustomerRepository customerRepository)
         {
-            _repository = repository;
+            _customerRepository = customerRepository;
         }
 
         public async Task Execute(Guid id)
         {
-            var customer = await _repository.GetByIdAsync(id);
+            var customer = await _customerRepository.GetByIdAsync(id);
 
             if (customer == null)
-                throw new Exception("Customer não encontrado");
+                throw new Exception("Customer not found");
 
-            await _repository.DeleteAsync(customer);
-            await _repository.SaveChangesAsync();
+            await _customerRepository.DeleteAsync(customer);
+            await _customerRepository.SaveChangesAsync();
         }
     }
 }

@@ -1,23 +1,23 @@
 using Domain.Enums;
+namespace Domain.Entities;
 
-namespace Application.Orders;
 
 public class CreateOrder
 {
-    private readonly IOrderRepository _repository;
+    private readonly IOrderRepository _orderRepository;
 
-    public CreateOrder(IOrderRepository repository)
+    public CreateOrder(IOrderRepository orderRepository)
     {
-        _repository = repository;
+        _orderRepository = orderRepository;
     }
 
     public async Task<Order> Execute(Guid customerId, Guid productId, int quantity, decimal value, DateTime orderDate, StatusOrder status)
     {
        if (quantity <= 0)
-            throw new ArgumentException("Quantidade inválida");
+            throw new ArgumentException("Quantity is invalid");
 
         if (value <= 0)
-            throw new ArgumentException("Valor inválido");
+            throw new ArgumentException("Value is invalid");
 
         var order = new Order(
             customerId,
@@ -29,8 +29,8 @@ public class CreateOrder
         );
             
 
-        await _repository.AddAsync(order);
-        await _repository.SaveChangesAsync();
+        await _orderRepository.AddAsync(order);
+        await _orderRepository.SaveChangesAsync();
 
         return order;
     }

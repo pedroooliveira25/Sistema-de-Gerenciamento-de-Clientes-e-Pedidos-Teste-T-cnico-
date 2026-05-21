@@ -13,7 +13,7 @@ public class DeleteUser
         var user = await _userRepository.GetByIdAsync(id);
 
         if (user == null)
-            throw new Exception("User não encontrado");
+            throw new Exception("User not found");
 
         await _userRepository.DeleteAsync(user);
         await _userRepository.SaveChangesAsync();

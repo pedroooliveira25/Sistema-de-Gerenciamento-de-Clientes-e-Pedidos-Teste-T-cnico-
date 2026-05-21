@@ -21,19 +21,19 @@ public class CreateUser
     public async Task<User> Execute(string name, string email, string password, UserType userType, string address)
     {
         if (string.IsNullOrWhiteSpace(name))
-            throw new ArgumentException("Name inválido");
+            throw new ArgumentException("Name is invalid");
 
         if (!email.Contains("@") || string.IsNullOrWhiteSpace(email))
-            throw new ArgumentException("Email inválido");
+            throw new ArgumentException("Email is invalid");
 
         if (string.IsNullOrWhiteSpace(password))
-            throw new ArgumentException("Password inválido");
+            throw new ArgumentException("Password is invalid");
 
         if (string.IsNullOrWhiteSpace(address))
-            throw new ArgumentException("Address inválido");
+            throw new ArgumentException("Address is invalid");
 
         if (!Enum.IsDefined(typeof(UserType), userType))
-            throw new ArgumentException("UserType inválido");
+            throw new ArgumentException("UserType is invalid");
 
         var passwordHash = _hashService.GenerateSha256(password);
 

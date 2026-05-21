@@ -14,22 +14,22 @@ public class CreateCustomer
     public async Task<Customer> Execute(string name, string email, string password, string address, UserType userType, StageAccount stageAccount)
     {
         if (string.IsNullOrWhiteSpace(name))
-            throw new ArgumentException("Name inválido");
+            throw new ArgumentException("Name is invalid");
 
         if (string.IsNullOrWhiteSpace(email))
-            throw new ArgumentException("Email inválido");
+            throw new ArgumentException("Email is invalid");
 
         if (string.IsNullOrWhiteSpace(password))
-            throw new ArgumentException("Password inválido");
+            throw new ArgumentException("Password is invalid");
 
         if (string.IsNullOrWhiteSpace(address))
-            throw new ArgumentException("Address inválido");
+            throw new ArgumentException("Address is invalid");
 
         if (!Enum.IsDefined(typeof(UserType), userType))
-            throw new ArgumentException("UserType inválido");
+            throw new ArgumentException("UserType is invalid");
 
         if (!Enum.IsDefined(typeof(StageAccount), stageAccount))
-            throw new ArgumentException("StageAccount inválido");
+            throw new ArgumentException("StageAccount is invalid");
 
         var customer = new Customer(
             name,

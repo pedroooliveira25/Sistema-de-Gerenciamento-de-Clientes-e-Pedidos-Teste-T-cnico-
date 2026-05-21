@@ -1,23 +1,23 @@
-namespace Application.Orders
-{
+namespace Domain.Entities;
+
+
     public class DeleteOrder
     {
-        private readonly IOrderRepository _repository;
+        private readonly IOrderRepository _orderRepository;
 
-        public DeleteOrder(IOrderRepository repository)
+        public DeleteOrder(IOrderRepository orderRepository)
         {
-            _repository = repository;
+            _orderRepository = orderRepository;
         }
 
         public async Task Execute(Guid id)
         {
-            var order = await _repository.GetByIdAsync(id);
+            var order = await _orderRepository.GetByIdAsync(id);
 
             if (order == null)
-                throw new Exception("Order não encontrado");
+                throw new Exception("Order not found");
 
-            await _repository.DeleteAsync(order);
-            await _repository.SaveChangesAsync();
+            await _orderRepository.DeleteAsync(order);
+            await _orderRepository.SaveChangesAsync();
         }
     }
-}

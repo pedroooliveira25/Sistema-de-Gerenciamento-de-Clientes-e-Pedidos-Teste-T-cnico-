@@ -17,7 +17,7 @@ public class UpdateUser
         var user = await _productRepository.GetByIdAsync(id);
 
         if (user == null)
-            throw new Exception("User não encontrado");
+            throw new Exception("Product not found");
 
         user.Update( email, name, password, userType,  address);
 
