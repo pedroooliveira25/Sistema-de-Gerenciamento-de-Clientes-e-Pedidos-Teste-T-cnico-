@@ -3,17 +3,20 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Application.Interfaces;
 using Application.Dtos;
-
 namespace Api.Controller;
 
 [ApiController]
 [Route("api/auth")]
 public class AuthController : ControllerBase
 {
+    private readonly IUserRepository _userRepository;
+    private readonly HashService _hashService;
     private readonly CreateUser _createUser;
-    public AuthController(CreateUser createUser)
+    public AuthController(CreateUser createUser, HashService hashService, IUserRepository userRepository)
     {
         _createUser = createUser;
+        _hashService = hashService;
+        _userRepository = userRepository;
     }
 
     [HttpPost("signup")]
@@ -36,13 +39,15 @@ public class AuthController : ControllerBase
 
     public async Task<IActionResult> Login([FromBody] LoginRequest request)
     {
-        var user = await IUserRepository.GetByEmailAsync(request.Password);
+       
+        var user = await _userRepository.GetByEmailAsync(request.Email);
 
         if (user == null)
         return Unauthorized("Not found user");
 
-        var passwordHash = _hashService.generateSha256(request.Password);
-        if(user.PasswordHash != passwordHash)
+        var passwordHash = _hashService.GenerateSha256(request.Password);
+
+        if(user.Password != passwordHash)
             return Unauthorized("Invalid password");
 
         return Ok("Login OK");        

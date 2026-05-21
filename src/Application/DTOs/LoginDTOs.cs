@@ -1,7 +1,12 @@
-namespace Application.Dtos;
 using System.ComponentModel.DataAnnotations;
-using Domain.Enums;
+namespace Application.Dtos;
+
 public class LoginRequest
-{
+{   
+     [Required]
+     public string Password {get; set;}
+     [Required]
+     public string Email {get; set;}
+
     
 }
