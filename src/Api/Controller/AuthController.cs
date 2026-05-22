@@ -8,15 +8,17 @@ namespace Api.Controller;
 [ApiController]
 [Route("api/auth")]
 public class AuthController : ControllerBase
-{
+{   
+    private readonly TokenService _tokenService;
     private readonly IUserRepository _userRepository;
     private readonly HashService _hashService;
     private readonly CreateUser _createUser;
-    public AuthController(CreateUser createUser, HashService hashService, IUserRepository userRepository)
+    public AuthController(CreateUser createUser, HashService hashService, IUserRepository userRepository, TokenService tokenService)
     {
         _createUser = createUser;
         _hashService = hashService;
         _userRepository = userRepository;
+        _tokenService = tokenService;
     }
 
     [HttpPost("signup")]
@@ -33,9 +35,8 @@ public class AuthController : ControllerBase
 
         return Ok(user);
     }
-
+    
     [HttpPost("login")]
-    [AllowAnonymous]
 
     public async Task<IActionResult> Login([FromBody] LoginRequest request)
     {
@@ -49,8 +50,15 @@ public class AuthController : ControllerBase
 
         if(user.Password != passwordHash)
             return Unauthorized("Invalid password");
+      
+    
+       var token = _tokenService.GenerateToken(
+            user.Id,
+            user.NameUser,
+            user.Email
+       );
 
-        return Ok("Login OK");        
+        return Ok(new{ token });        
     }
 
 }

@@ -30,7 +30,7 @@ public class Product : Base
     public List<Order> Orders { get; set; } = new();
     
 
-   
+
     public Product (Guid productId, string nameProduct, decimal price, int quantity, int stock, StageProduct stageProduct)
     {
         if(!ValidatePropertiesString(nameProduct, "Name product"))
@@ -73,7 +73,7 @@ public class Product : Base
     Stock -= quantity;
 }
 
-   public void Update(int quantity, decimal price, StageProduct stageProduct)
+   public void Update(string nameProduct, int quantity, decimal price, StageProduct stageProduct)
     {   
         if(!ValidatePropertiesDecimal(price, "Price"))
             throw new Exception("Invalid price");
@@ -87,5 +87,6 @@ public class Product : Base
         this.Quantity = quantity;
         this.Price = price;
         this.StageProduct = stageProduct;
+        this.NameProduct = nameProduct;
     }
 }

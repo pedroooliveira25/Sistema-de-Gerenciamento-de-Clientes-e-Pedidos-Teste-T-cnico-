@@ -1,6 +1,5 @@
 
 namespace Application.Products;
-using Domain.Enums;
 public class UpdateProduct
 {
     private readonly IProductRepository _productRepository;
@@ -10,19 +9,22 @@ public class UpdateProduct
         _productRepository = productRepository;
     }
 
-    public async Task<Product> Execute(Guid id, string nameProduct, decimal price, int quantity, int stock, StageProduct stageProduct)
+    public async Task<Product> Execute( UpdateProductDTOs request)
     {
-        var product = await _productRepository.GetByIdAsync(id);
+        var product = await _productRepository.GetByIdAsync(request.ProductId);
 
-        if (product == null)
-            throw new Exception("Product not found");
+        if (request == null)
+            throw new Exception ("Product is invalid");
 
-        product.Update(quantity, price, stageProduct); 
+        product.Update(
+            request.NameProduct,
+            request.Quantity,
+            request.Price,
+            request.StageProduct
+        );
 
         await _productRepository.UpdateAsync(product);
-        await _productRepository.AddAsync(product);
-        await _productRepository.SaveChangesAsync();
-        
         return product;
     }
+
 }
