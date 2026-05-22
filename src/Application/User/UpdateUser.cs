@@ -1,5 +1,7 @@
 
 using Domain.Enums;
+using Domain.Entities;
+
 
 namespace Application.Interfaces;
 

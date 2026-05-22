@@ -1,5 +1,10 @@
+using Domain.Entities;
+
 namespace Application.Interfaces.Users;
+
+
 public class DeleteUser
+
 {
     private readonly IUserRepository _userRepository;
 

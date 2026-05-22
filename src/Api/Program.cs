@@ -7,7 +7,7 @@ using Serilog;
 
 using Infrastructure.Data;
 using Domain.Entities;
-using Domain.Interfaces;
+
 using Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -1,6 +1,6 @@
 
 using Domain.Enums;
-using Application.Interfaces;
+using Domain.Entities;
 namespace Application.Customers;
 
 public class CreateCustomer

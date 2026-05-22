@@ -1,8 +1,9 @@
 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Application.Interfaces;
 using Application.Dtos;
+using Domain.Entities;
+
 namespace Api.Controller;
 
 [ApiController]

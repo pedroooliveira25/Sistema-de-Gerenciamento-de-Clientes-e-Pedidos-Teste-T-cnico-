@@ -1,9 +1,7 @@
 
 using Domain.Enums;
 using Domain.Entities;
-using Application.Interfaces;
 
-namespace Application;
 
 
 public class CreateUser

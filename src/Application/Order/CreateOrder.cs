@@ -1,4 +1,3 @@
-using Application.Interfaces;
 using Domain.Enums;
 
 namespace Domain.Entities;

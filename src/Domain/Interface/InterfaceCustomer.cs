@@ -1,5 +1,5 @@
 
-namespace Domain.Interfaces;
+
 using Domain.Entities;
 public interface ICustomerRepository
 {

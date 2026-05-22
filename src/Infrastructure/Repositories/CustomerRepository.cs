@@ -1,6 +1,5 @@
 namespace Infrastructure.Repositories;
 
-using Domain.Interfaces;
 using Domain.Entities;
 
 public class CustomerRepository : ICustomerRepository

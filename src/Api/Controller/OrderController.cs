@@ -1,8 +1,7 @@
 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Application.Interfaces;
-using Application.Dtos;
+
 using Domain.Entities;
 using System.Security.Claims;
 using Domain.Enums;
