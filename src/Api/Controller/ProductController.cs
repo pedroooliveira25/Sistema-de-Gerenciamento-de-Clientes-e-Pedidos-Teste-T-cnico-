@@ -5,7 +5,7 @@ using Application.Products;
 
 
 [ApiController]
-[Route("api/Product")]
+[Route("api/product")]
 public class ProductController : ControllerBase
 {
     private readonly IProductRepository _productRepository;

@@ -15,7 +15,8 @@ public class Order : Base
     public DateTime OrderDate { get; private set; }
     [Column("Status")]
     public StatusOrder Status { get; private set; }
-
+    [Column("Address")]
+    public string Address { get; private set; }
 
     [Column("Customer_Id")]
     public Guid CustomerId { get; private set; }
@@ -26,7 +27,7 @@ public class Order : Base
     public Product? Product { get; private set; }
 
     
-    public Order(Guid customerId, Guid productId, int quantity, decimal value, DateTime orderDate, StatusOrder status)
+    public Order(Guid customerId, Guid productId, int quantity, decimal value, DateTime orderDate, StatusOrder status, string address)
     {
         if (!ValidatePropertiesGuidId(customerId, "Customer id"))
         {
@@ -47,12 +48,17 @@ public class Order : Base
         {
             throw new ArgumentException("Invalid value");
         }
+        if (!ValidatePropertiesString(address, "Address"))
+        {
+            throw new ArgumentException("Invalid address");
+        }
 
 
         this.CustomerId = customerId;
         this.ProductId = productId;
         this.Quantity = quantity;
         this.Value = value;
+        this.Address = address;
 
         this.OrderDate = orderDate;
         this.Status = status;
