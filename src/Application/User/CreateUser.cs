@@ -1,6 +1,5 @@
 
 using Domain.Enums;
-using Infrastructure;
 namespace Application.Interfaces;
 
 public class CreateUser
@@ -36,11 +35,11 @@ public class CreateUser
             throw new ArgumentException("UserType is invalid");
 
         var passwordHash = _hashService.GenerateSha256(password);
-
+    
         var user = new User(
             name,
             email,
-            password,
+            passwordHash,
             userType,
             address
         );
@@ -52,7 +51,7 @@ public class CreateUser
             name,
             email,
             user.Id,
-            password,
+            passwordHash,
             address,
             userType,
             StageAccount.Active

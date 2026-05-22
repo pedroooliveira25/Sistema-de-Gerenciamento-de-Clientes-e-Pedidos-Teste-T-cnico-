@@ -12,6 +12,15 @@ public class HashService
 
         return Convert.ToHexString(hashBytes);
     }
+
+    public bool Verificar(string input, string hash)
+    {
+        var inputHash = GenerateSha256(input);
+        return inputHash == hash;
+    }
+    
 }
+
+
 
 

@@ -24,7 +24,9 @@ public class AuthController : ControllerBase
     [HttpPost("signup")]
     [AllowAnonymous]
     public async Task<IActionResult> Signup([FromBody] SignupRequest request)
-    {
+    {   
+      
+
         var user = await _createUser.Execute(
             request.NameUser,
             request.Email,
@@ -32,6 +34,7 @@ public class AuthController : ControllerBase
             request.UserType,
             request.Address
         );
+        
 
         return Ok(user);
     }
