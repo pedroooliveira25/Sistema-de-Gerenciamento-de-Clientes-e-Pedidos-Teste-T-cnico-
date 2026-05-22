@@ -1,5 +1,4 @@
-using Domain.Enums;
-
+using Application.Interfaces;
 namespace Application.Customers;
 
 public class GetCustomer

@@ -1,4 +1,6 @@
+using Application.Interfaces;
 namespace Application.Customers
+
 {
     public class DeleteCustomer
     {
