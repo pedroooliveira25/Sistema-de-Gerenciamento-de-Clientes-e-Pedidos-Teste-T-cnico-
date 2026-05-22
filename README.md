@@ -56,12 +56,9 @@ Porém, irei concluir este desafio, independentemente dos problemas ou do prazo.
 
 ## Fluxos de pensamento utilizados para construir esta API
 ### Um pouco de como estruturei as coisas...
- <p aling="center">
-    <img src="src/img/Img01.png" width="270" />
-    <img src="src/img/img2.png" width="380" />
-    <img src="src/img/Img03.png" width="800" />
-    <img src="src/img/Img04.png" width="400" />
- </p>
+![Print do projeto](./src/img/01.png)
+![Print do projeto](./src/img/02.png)
+![Print do projeto](./src/img/03.png)
  
  ## Conclusão:
  Neste projeto tive a oportunidade de aprender e aplicar conceitos que realmente envolvem uma estrutura limpa e profissional no mercado de trabalho. Graças às minhas dificuldades, pude ter acesso a fluxos de camadas e ao pensamento lógico que devo ter antes de começar a criar uma aplicação. Acredito que ter uma visualização clara sobre o tipo de trabalho que está em suas mãos te livra de passar dificuldades pelo caminho. Irei continuar estudando, não só sobre .NET, mas sobre todo o conjunto que faz parte da criação de um sistema bem resolvido consigo mesmo. Quero também agradecer à equipe da PATHBIT, que disponibilizou todos os recursos para que isso pudesse ser feito! 
