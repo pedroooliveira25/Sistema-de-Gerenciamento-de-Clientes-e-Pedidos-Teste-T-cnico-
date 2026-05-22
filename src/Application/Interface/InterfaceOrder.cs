@@ -1,6 +1,7 @@
 
 namespace Domain.Entities;
 
+
     public interface IOrderRepository
     {
         Task AddAsync(Order order);
