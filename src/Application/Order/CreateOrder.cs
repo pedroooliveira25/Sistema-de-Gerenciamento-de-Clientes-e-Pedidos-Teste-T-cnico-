@@ -1,5 +1,6 @@
 using Application.Interfaces;
 using Domain.Enums;
+
 namespace Domain.Entities;
 
 
@@ -33,7 +34,7 @@ public class CreateOrder
         if (product == null)
             throw new Exception("Product not found");
 
-            
+
         if (product.Stock < quantity)
             throw new Exception("Insufficient stock");
 

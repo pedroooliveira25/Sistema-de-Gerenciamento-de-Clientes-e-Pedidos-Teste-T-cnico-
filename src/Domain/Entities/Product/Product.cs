@@ -30,7 +30,7 @@ public class Product : Base
     public List<Order> Orders { get; set; } = new();
     
 
-
+    public Product(){}
     public Product (Guid productId, string nameProduct, decimal price, int quantity, int stock, StageProduct stageProduct)
     {
         if(!ValidatePropertiesString(nameProduct, "Name product"))

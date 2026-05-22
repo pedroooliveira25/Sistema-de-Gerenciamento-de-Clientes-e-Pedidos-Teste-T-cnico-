@@ -26,7 +26,7 @@ public class Order : Base
     public Guid ProductId { get; private set; }   
     public Product? Product { get; private set; }
 
-    
+    public Order(){}
     public Order(Guid customerId, Guid productId, int quantity, decimal value, DateTime orderDate, StatusOrder status, string address)
     {
         if (!ValidatePropertiesGuidId(customerId, "Customer id"))

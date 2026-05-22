@@ -18,9 +18,10 @@ public class User : Base
     [Column("Email")]
     public string Email {get; private set;}
 
-    [Column("Email")]
+    [Column("Address")]
     public string? Address {get; private set;}
 
+    public User(){}
     public User(string name, string email, string password, UserType userType, string address)
     {   
         ValidatePropertiesString(email, "email");
