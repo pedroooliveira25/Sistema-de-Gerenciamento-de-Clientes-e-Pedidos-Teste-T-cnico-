@@ -2,6 +2,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Domain.Entities;
 using Domain.Enums;
 
+namespace Domain.Entities;
+
 
 [Table("Products")]
 public class Product : Base

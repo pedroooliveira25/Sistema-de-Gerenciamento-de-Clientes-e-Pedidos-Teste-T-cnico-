@@ -1,3 +1,6 @@
+
+using Domain.Entities;
+
 namespace Application.Products;
 
 public class DeleteProduct

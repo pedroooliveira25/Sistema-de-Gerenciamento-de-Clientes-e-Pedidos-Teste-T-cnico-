@@ -1,6 +1,7 @@
 
 using Microsoft.AspNetCore.Mvc;
 using Application.Products;
+using Domain.Entities;
 
 
 

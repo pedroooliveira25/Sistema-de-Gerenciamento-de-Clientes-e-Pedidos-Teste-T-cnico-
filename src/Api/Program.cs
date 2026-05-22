@@ -4,10 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
 
+
 using Infrastructure.Data;
-using Application.Interfaces;
-using Application.Products;
 using Domain.Entities;
+
+using Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -67,10 +68,11 @@ builder.Services.AddAuthorization();
 
 #region Application Services (Use Cases)
 
-builder.Services.AddScoped<CreateUser>();
-builder.Services.AddScoped<CreateOrder>();
-builder.Services.AddScoped<CreateProduct>();
-builder.Services.AddScoped<UpdateProduct>();
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+
+builder.Services.AddScoped<HashService>();
 
 #endregion
 

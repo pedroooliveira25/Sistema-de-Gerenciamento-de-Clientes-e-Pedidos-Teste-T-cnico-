@@ -1,6 +1,10 @@
 
 using Domain.Enums;
+using Domain.Entities;
+
+
 namespace Application.Customers;
+
 
 public class UpdateCustomer
 {
