@@ -32,6 +32,8 @@ public class CreateOrder
         //acho q ja fiz essa regra antes, pode ser q n de certo. 
         if (product == null)
             throw new Exception("Product not found");
+
+            
         if (product.Stock < quantity)
             throw new Exception("Insufficient stock");
 
