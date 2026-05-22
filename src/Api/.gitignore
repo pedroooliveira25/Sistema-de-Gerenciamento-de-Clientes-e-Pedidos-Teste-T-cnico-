@@ -1,0 +1,16 @@
+
+bin/
+obj/
+
+
+*.log
+logs/
+
+
+.vs/
+.vscode/
+
+
+*.dll
+*.pdb
+*.exe

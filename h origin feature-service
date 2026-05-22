@@ -1,0 +1,43 @@
+[33me71e3df[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeature-service[m[33m)[m Criando infra e chave estrangeira
+[33m22b5788[m convert codebase to full English naming
+[33m538eb90[m Arrumanda a class Base
+[33m9fdfef8[m Arrumando metodos Update das classes, Order, Customer, Product, User.
+[33m66f917f[m CRUD do Customer criado
+[33ma6375d6[m CRUD de Order criado
+[33mb54d142[m Criando CRUD do Product
+[33m800aa7f[m Crud do user pronto
+[33mcafc0b6[m[33m ([m[1;31morigin/feature-service[m[33m)[m Usando Task
+[33m3f2ce6a[m criando crud
+[33m8790d4f[m Criando crud. Mas esta tudo baagunçado
+[33md71ccf0[m aaaa
+[33m7ebdbc0[m Add
+[33m2081d0f[m Limpando projeto
+[33mb72c9c8[m Criando o CreateUser
+[33mbaf69f9[m crinado services
+[33m5b02896[m[33m ([m[1;32mfeature/entities[m[33m)[m Criando products
+[33m558a718[m Criando products
+[33m95aa9f5[m Lapidando isso aqui, onde vai parar?? N sei
+[33m44afdf0[m Arrumando metodo do order com o customer
+[33m751b926[m Arrumando relacionamento de class
+[33m37babb8[m Arrumando Customers
+[33m094419c[m Configurando Status da conta
+[33mc51f4a1[m Enums, Customers
+[33m082af42[m[33m ([m[1;31morigin/feature/entities[m[33m)[m Lapidando autentição simples do user
+[33m57ee768[m Melhorando validacao
+[33m64a3f1b[m Add enum e refilando notifications
+[33md710823[m crianddo class para notificar msgs do software
+[33md69f46e[m Arrumanda cagada e organizando esssa bagunça
+[33m048de35[m Arrumando pendencias
+[33m6c8cb74[m deu ruim e to tentando arrumar
+[33m8b1e27e[m tests, tests, tests
+[33ma3df534[m I don’t have a fucking idea what I’m making here.
+[33m07eae24[m send changes
+[33mb14c008[m edit User - Customer - Order - Product againn
+[33maded769[m I edit Customer, Order, Product and User, lets go now!
+[33m1e4b5b2[m Create Customer
+[33m5572ad5[m Add enum
+[33m0dfbfae[m Modeling the User Entity
+[33m215364c[m add user
+[33m3c9929e[m feat: create domain entities
+[33mb2a73d0[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m Criando referecias
+[33m8660a3a[m Iniciando projeto
