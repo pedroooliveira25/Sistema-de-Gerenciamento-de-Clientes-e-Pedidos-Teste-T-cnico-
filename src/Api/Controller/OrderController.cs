@@ -36,7 +36,8 @@ public class OrderController : ControllerBase
             request.Value,
             DateTime.UtcNow,
             StatusOrder.Pending,
-            request.Address
+            request.Address,
+            request.Cep
         );
         
             

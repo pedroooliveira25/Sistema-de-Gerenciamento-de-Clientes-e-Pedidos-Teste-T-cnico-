@@ -18,7 +18,8 @@ public class Order : Base
     public StatusOrder Status { get; private set; }
     [Column("Address")]
     public string Address { get; private set; }
-
+    [Column("Cep")]
+    public int Cep  { get; private set; }
     [Column("Customer_Id")]
     public Guid CustomerId { get; private set; }
     public Customer? Customer { get; private set; }
@@ -28,7 +29,7 @@ public class Order : Base
     public Product? Product { get; private set; }
 
     public Order(){}
-    public Order(Guid customerId, Guid productId, int quantity, decimal value, DateTime orderDate, StatusOrder status, string address)
+    public Order(Guid customerId, Guid productId, int quantity, decimal value, DateTime orderDate, StatusOrder status, string address, int cep)
     {
         if (!ValidatePropertiesGuidId(customerId, "Customer id"))
         {
@@ -43,6 +44,10 @@ public class Order : Base
         if (!ValidatePropertiesInt(quantity, "Quantity"))
         {
             throw new ArgumentException("Invalid quantity");
+        }
+        if (!ValidatePropertiesInt(cep, "Cep"))
+        {
+            throw new ArgumentException("Invalid cep");
         }
 
         if (!ValidatePropertiesDecimal(value, "Value"))
@@ -60,6 +65,7 @@ public class Order : Base
         this.Quantity = quantity;
         this.Value = value;
         this.Address = address;
+        this.Cep = cep;
 
         this.OrderDate = orderDate;
         this.Status = status;
@@ -76,16 +82,19 @@ public class Order : Base
         product.DecreaseStock(Quantity);
     }
 
-    public void Update(int quantity, decimal value, StatusOrder status)
+    public void Update(int quantity, decimal value, StatusOrder status, int cep)
     {
         if (!ValidatePropertiesInt(quantity, "Quantity"))
             throw new ArgumentException("Invalid quantity");
+         if (!ValidatePropertiesInt(cep, "Cep"))
+            throw new ArgumentException("Invalid cep");
 
         if (!ValidatePropertiesDecimal(value, "Value"))            
             throw new ArgumentException("Invalid value");
 
         if (!ValidatePropertiesGuidId(Id, "Order id"))
             throw new ArgumentException("Invalid order ID");
+
         if (status == StatusOrder.Sending)
         {
             throw new InvalidOperationException("It is not possible to update a confirmed order.");
@@ -94,5 +103,6 @@ public class Order : Base
         this.Quantity = quantity;
         this.Value = value;
         this.Status = status;
+        this.Cep = cep;
     }
 }

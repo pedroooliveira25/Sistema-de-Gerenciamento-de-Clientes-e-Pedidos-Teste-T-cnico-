@@ -12,14 +12,14 @@ public class UpdateOrder
         _orderRepository = orderRepository;
     }
 
-    public async Task<Order> Execute(Guid id, int quantity, decimal value, StatusOrder status)
+    public async Task<Order> Execute(Guid id, int quantity, decimal value, StatusOrder status, int cep)
     {
         var order = await _orderRepository.GetByIdAsync(id);
 
         if (order == null)
             throw new Exception("Order not found");
 
-        order.Update(quantity, value, status);
+        order.Update(quantity, value, status, cep);
 
         await _orderRepository.UpdateAsync(order);
         await _orderRepository.AddAsync(order);

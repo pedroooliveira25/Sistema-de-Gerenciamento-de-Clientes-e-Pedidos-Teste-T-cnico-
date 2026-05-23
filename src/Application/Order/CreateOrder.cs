@@ -17,7 +17,7 @@ public class CreateOrder
         _orderRepository = orderRepository;
     }
 
-    public async Task<Order> Execute( Guid customerId, Guid productId, int quantity, decimal value, DateTime orderDate, StatusOrder status, string address)
+    public async Task<Order> Execute( Guid customerId, Guid productId, int quantity, decimal value, DateTime orderDate, StatusOrder status, string address, int cep)
     {
         //OBS: sei q ta cheio de If aqui poderia usar outros metodos, mas essa é a v1, quero ver se funciona. 
         var user = await _userRepository.GetByIdAsync(customerId);
@@ -33,10 +33,10 @@ public class CreateOrder
         if (product == null)
             throw new Exception("Product not found");
 
-
         if (product.Stock < quantity)
             throw new Exception("Insufficient stock");
-
+        if (cep == 0 && cep >8)
+            throw new Exception("Product not found");
         if (quantity <= 0)
             throw new ArgumentException("Quantity is invalid");
 
@@ -54,7 +54,8 @@ public class CreateOrder
             value,
             DateTime.UtcNow,
             StatusOrder.Pending,
-            address
+            address,
+            cep
         );
         await _orderRepository.AddAsync(order);
         await _orderRepository.SaveChangesAsync();

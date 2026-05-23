@@ -12,6 +12,8 @@ public class CreateOrderDTO
 
     [Required]
     public string Address { get; set; }
+    public int Cep { get; set; }
+
     public decimal Value { get; set; }
     public StatusOrder statusOrder = StatusOrder.Pending;
 
