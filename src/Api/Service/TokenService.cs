@@ -2,6 +2,9 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Domain.Enums;
+
+namespace Application.Services;
 
 //Não entendo muito de JWT fiz vendo video no youtbe
 public class TokenService
@@ -13,13 +16,14 @@ public class TokenService
         _config = config;
     }
 
-    public string GenerateToken(Guid clientId, string name, string email)
+    public string GenerateToken(Guid clientId, string name, string email, UserType userType)
     {
         var claims = new[]
         {
             new Claim("ClientId", clientId.ToString()),
             new Claim(ClaimTypes.Name, name),
-            new Claim(ClaimTypes.Email, email)
+            new Claim(ClaimTypes.Email, email),
+            new Claim(ClaimTypes.Role, userType.ToString())
         };
 
         var key = new SymmetricSecurityKey(

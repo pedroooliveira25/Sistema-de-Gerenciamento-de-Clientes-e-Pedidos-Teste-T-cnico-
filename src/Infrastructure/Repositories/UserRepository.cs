@@ -1,34 +1,55 @@
 namespace Infrastructure.Repositories;
-using Domain.Entities;
+
+using Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 public class UserRepository : IUserRepository
 {
-    public Task AddAsync(User user)
+
+    private readonly AppDbContext _context;
+
+    public UserRepository(AppDbContext context)
     {
-        return Task.CompletedTask;
+        _context = context;
     }
 
-     public Task<User?> GetByIdAsync(Guid id)
+    
+    public async Task AddAsync(User user)
     {
-        return Task.FromResult<User?>(null);
+        await _context.Users.AddAsync(user);
     }
-    public Task<User?> GetByEmailAsync(string email)
-{
-    return Task.FromResult<User?>(null);
-}
 
+
+    public async Task<User?> GetByIdAsync(Guid id)
+    {
+        return await _context.Users
+            .FirstOrDefaultAsync(x => x.Id == id);
+    }
+
+    
+    public async Task<User?> GetByEmailAsync(string email)
+    {
+        return await _context.Users
+            .FirstOrDefaultAsync(x => x.Email == email);
+    }
+
+ 
     public Task UpdateAsync(User user)
     {
+        _context.Users.Update(user);
         return Task.CompletedTask;
     }
 
+    
     public Task DeleteAsync(User user)
     {
+        _context.Users.Remove(user);
         return Task.CompletedTask;
     }
 
-    public Task SaveChangesAsync()
+    
+    public async Task SaveChangesAsync()
     {
-        return Task.CompletedTask;
+        await _context.SaveChangesAsync();
     }
 }

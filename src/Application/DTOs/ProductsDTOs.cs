@@ -12,12 +12,10 @@ public class CreatProductRequestDTOs
     public decimal Price { get; set; }
     [Required]
 
-    //reforçando regra sei q pode ser redundante, mas vai que né
     [Range(1, int.MaxValue)]
     public int Quantity { get; set; }
     [Required] 
-    public int Stock {get; private set;}
-
-    public StageProduct StageProduct {get; private set;}
+    public int Stock {get;  set;}
+    public StageProduct StageProduct {get;  set;}
 
 }

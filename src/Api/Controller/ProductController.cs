@@ -1,8 +1,8 @@
 
 using Microsoft.AspNetCore.Mvc;
 using Application.Products;
-using Domain.Entities;
 
+using Domain.Entities;
 
 
 [ApiController]
@@ -22,7 +22,7 @@ public class ProductController : ControllerBase
 
     }
 
-    //retorno esperado 200ok 
+    // esperado 200ok  
     [HttpPost("createProduct")]
 
     //criando uma funcao assincrona e que retorne metodos HTTPS quando chamar meu objeto 
@@ -33,14 +33,13 @@ public class ProductController : ControllerBase
         if (request == null)
         return BadRequest("Product is invalid");
 
-    if (!User.IsInRole("ADM"))
-        return Forbid();
+   
 
     var create = await _createProduct.Execute(
     request.NameProduct,
     request.ProductId,
     request.Price,
-    request.Stock,
+    request.Stock,  
     request.Quantity,
     request.StageProduct
     );

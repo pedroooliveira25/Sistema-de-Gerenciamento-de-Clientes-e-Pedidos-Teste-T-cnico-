@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Application.Dtos;
-using Domain.Entities;
+using Application.Services;
 
 namespace Api.Controller;
 
@@ -59,7 +59,8 @@ public class AuthController : ControllerBase
        var token = _tokenService.GenerateToken(
             user.Id,
             user.NameUser,
-            user.Email
+            user.Email,
+            user.UserType
        );
 
         return Ok(new{ token });        

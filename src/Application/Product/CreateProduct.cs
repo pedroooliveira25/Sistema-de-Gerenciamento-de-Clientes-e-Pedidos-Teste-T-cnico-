@@ -1,4 +1,5 @@
 using Domain.Entities;
+
 using Domain.Enums;
 namespace Application.Products;
 public class CreateProduct

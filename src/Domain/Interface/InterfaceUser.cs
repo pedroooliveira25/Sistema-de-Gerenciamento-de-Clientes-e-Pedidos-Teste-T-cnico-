@@ -1,4 +1,4 @@
-namespace Domain.Entities;
+
 public interface IUserRepository
 {
     Task AddAsync(User user);

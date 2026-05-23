@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
+using Application.Products;
+using Application.Services;
 
 
 using Infrastructure.Data;
@@ -13,7 +15,6 @@ using Infrastructure.Repositories;
 var builder = WebApplication.CreateBuilder(args);
 
 #region Controllers + Swagger
-
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -67,12 +68,25 @@ builder.Services.AddAuthorization();
 #endregion
 
 #region Application Services (Use Cases)
+//controller de Auth 
+builder.Services.AddScoped<HashService>();
+builder.Services.AddScoped<CreateUser>();
+builder.Services.AddScoped<TokenService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+//controller de Order 
+builder.Services.AddScoped<CreateOrder>();
 
-builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+//controller de Product 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<CreateProduct>();
+builder.Services.AddScoped<UpdateProduct>();
+
+//controller de Product 
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 
-builder.Services.AddScoped<HashService>();
+
+
 
 #endregion
 
